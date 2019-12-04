@@ -21,12 +21,14 @@ class ResponsiveImageHelper {
      */
     private function generateThumbnail ($pImagePath, $pWidth)
     {
+        // config array
         $config = [
             'src' => $pImagePath,
             'mode' => 'fitToWidth',
             'width' => $pWidth
         ];
 
+        // return thumbnail array
         return cockpit('cockpit')->thumbnail($config);
     }
 
@@ -67,7 +69,7 @@ class ResponsiveImageHelper {
             }
         }
 
-        // return image
+        // return final array
         return $responsiveImageArray;
     }
 

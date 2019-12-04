@@ -1,5 +1,8 @@
 
 <?php
+
+// access: http://localhost/michael-ferire/michael-ferire-studio-v01/trunk-back/api/public/home
+// infos
 // https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
 
 require_once __DIR__ . "/../../helpers/ResponsiveImageHelper.php";
