@@ -22,9 +22,13 @@ $page = cockpit('singletons')->getData('Home', [
 $gallery = $page['Gallery'];
 
 //return prepareGalleryField($gallery);
-return $page;
+return [
+    "title" => $page["Title"],
+    "image" => prepareImageField($page["Image"]),
+    "gallery" => prepareGalleryField($page["Gallery"])
+];
 
-
-
+//return $page["Image"];
+//return prepareImageField($page["Image"]);
 
 

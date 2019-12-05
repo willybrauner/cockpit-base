@@ -54,8 +54,11 @@
       array (
         'meta' => 
         array (
-          'type' => 'Color',
-          'label' => 'chose color',
+          'title' => 
+          array (
+            'type' => 'text',
+            'label' => 'title',
+          ),
         ),
       ),
       'width' => '1-1',
@@ -68,7 +71,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1574259760,
-  '_modified' => 1575561380,
+  '_modified' => 1575564020,
   'description' => '',
   'acl' => 
   array (

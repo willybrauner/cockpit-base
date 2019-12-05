@@ -12,7 +12,6 @@ class ResponsiveImageModel
      */
     private static $sizes = [640, 768, 1024, 1440, 1960];
 
-
     /**
      * Return a single image object
      * @param $pImagePath
@@ -47,8 +46,8 @@ class ResponsiveImageModel
             : null;
 
         // get meta caption
-        $caption = isset($pImage['meta']['caption'])
-            ? $pImage['meta']['caption']
+        $caption = isset($pImage['meta']['description'])
+            ? $pImage['meta']['description']
             : null;
 
         // creat final image object
