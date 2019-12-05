@@ -1,38 +1,30 @@
 
 <?php
 
-// access: http://localhost/michael-ferire/michael-ferire-studio-v01/trunk-back/api/public/home
-// infos
-// https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
+// access this API: http://localhost/michael-ferire/michael-ferire-studio-v01/trunk-back/api/public/home
+// infos: https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
 
-require_once __DIR__ . "/../../helpers/ResponsiveImageHelper.php";
-$ResponsiveImageHelper = new ResponsiveImageHelper();
+/**
+ * Home SingleTons
+ */
 
-// l
+require __DIR__ . '/../../prepare/prepare.php';
+
+// get current language
 $lang = $this->param('lang');
 
-$home = cockpit('singletons')->getData('Home', [
+// get current page
+$page = cockpit('singletons')->getData('Home', [
     'lang' => $lang
 ]);
 
 // target gallery
-$gallery = $home['Gallery'];
+$gallery = $page['Gallery'];
 
-// si la gallery exist
-if(isset($gallery))
-{
-
-    $formatGallery = [];
-
-    foreach ($home['Gallery'] as $item)
-    {
-        $formatGallery[] = $ResponsiveImageHelper->computeImage($item['path']);
-    }
-
-    return $formatGallery;
-}
+//return prepareGalleryField($gallery);
+return $page;
 
 
 
-return $home;
+
 

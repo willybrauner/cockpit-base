@@ -41,11 +41,34 @@
       array (
       ),
     ),
+    2 => 
+    array (
+      'name' => 'Image',
+      'label' => '',
+      'type' => 'image',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+        'meta' => 
+        array (
+          'type' => 'Color',
+          'label' => 'chose color',
+        ),
+      ),
+      'width' => '1-1',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
   ),
   'template' => '',
   'data' => NULL,
   '_created' => 1574259760,
-  '_modified' => 1575484198,
+  '_modified' => 1575561380,
   'description' => '',
   'acl' => 
   array (

@@ -2,18 +2,20 @@
 
 return [
 
+    "debug" => true,
+
     # cockpit session name
     'app.name' => 'Willy B',
 
     # cockpit session name
     'session.name' => 'admin',
 
-    # site url (optional) - helpful if you're behind a reverse proxy
-    //'site_url' => 'https://mydomain.com',
 
     # define the languages you want to manage
     'languages' => [
-        'default' => 'English',       #setting a default language is optional
+        # setting a default language is optional
+        'default' => 'English',
+
         'fr' => 'French',
     ],
 
@@ -33,18 +35,6 @@ return [
             ]
         ]
     ],
-
-    # use smtp to send emails
-//    'mailer' => [
-//        'from'       => 'info@mydomain.tld',
-//        'transport'  => 'smtp'
-//        'host'       => 'smtp.myhost.tld',
-//        'user'       => 'username'
-//        'password'   => 'xxpasswordxx',
-//        'port'       => 25,
-//        'auth'       => true,
-//        'encryption' => '' # '', 'ssl' or 'tls'
-//    ]
 
     # Define Access-Control (CORS) settings.
     # Those are the default values. You don't need to duplicate them all.
