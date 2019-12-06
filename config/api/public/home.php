@@ -21,16 +21,55 @@ $page = cockpit('singletons')->getData('Home', [
 $gallery = $page['Gallery'];
 
 
-// return prepareGalleryField($gallery);
+$blocks = $page['Blocks'];
+
+
+/**
+ * Prepare block builder
+ * @param array $pBlocks
+ * @return array
+ */
+function prepareBlockBuilder(array $pBlocks) :array
+{
+    // format block array
+    $formatBlocks = [];
+
+    // for each blocks
+    foreach ($pBlocks as $block)
+    {
+        // if field type name is "gallery"
+        if( $block['field']['type'] === "gallery")
+        {
+            // push in formatBlocks GalleryBlock => value
+            $formatBlocks["GalleryBlock"] = prepareGalleryField($block['value']);
+        }
+        // if field type name is "gallery"
+        if( $block['field']['type'] === "markdown")
+        {
+            // FIXME - la 2eme fois que l'on pass sur la clef, on écrase sa valeur
+            // push in formatBlocks MarkdownBlock => value
+            $formatBlocks["MarkdownBlock"] = $block['value'];
+        }
+    }
+
+    // return this format blocks array
+    return $formatBlocks;
+}
+
+
 return [
 
 
-    "title" => $page["Title"],
+    "blocks" => prepareBlockBuilder($page['Blocks']),
+
+    // page title
+   # "title" => $page["Title"],
 
     // return only 1st element of the gallery
-    "cover" => prepareGalleryField($page["Cover"])[0],
+   # "cover" => prepareGalleryField($page["Cover"])[0],
 
-    "gallery" => prepareGalleryField($page["Gallery"]),
+    // gallery
+   # "gallery" => prepareGalleryField($page["Gallery"]),
 
 
     //"_" => $page
