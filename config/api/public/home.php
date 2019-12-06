@@ -4,7 +4,7 @@
  * Home SingleTons
  *
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
- * @access http://localhost/cockpit-base/api/public/home
+ * @access http://localhost/cockpit-base/trunk/api/public/home
  */
 
 require __DIR__ . '/../../prepare/prepare.php';
@@ -22,15 +22,12 @@ $gallery = $page['Gallery'];
 
 // return prepareGalleryField($gallery);
 return [
-    //"title" => $page["Title"],
-    //"image" => prepareImageField($page["Image"]),
-    //"assets" => $page['Asset'],
+    "title" => $page["Title"],
     //"gallery" => prepareGalleryField($page["Gallery"]),
+    //"cover" => prepareImageField($page["Cover"]),
+    //"assets" => $page['Asset'],
     "all" => $page
 
 ];
-
-//return $page["Image"];
-//return prepareImageField($page["Image"]);
 
 
