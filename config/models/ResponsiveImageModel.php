@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__.'/../helpers/helpers.php';
+
 /**
  * @name ResponsiveImageModel
  * @description Allow to return an array of images objects
@@ -39,21 +41,42 @@ class ResponsiveImageModel
      */
     public function computeImage($pImage)
     {
+        // get meta asset id
+        // allow to request the root asset field with additional information
+        $assetId = isset($pImage['meta']['asset'])
+            ? $pImage['meta']['asset']
+            : null;
 
-        // get meta title
-        $title = isset($pImage['meta']['title'])
+        // get asset field by id
+        $rootAssetField = assetsHelper::getSingleAssetById($assetId);
+
+        // if meta title image in the gallery is set
+        $alt = isset($pImage['meta']['title'])
+            // show this title
             ? $pImage['meta']['title']
-            : null;
+            // else, show the root title of image (asset folder)
+            : $rootAssetField['title'];
 
-        // get meta caption
-        $caption = isset($pImage['meta']['description'])
+        // same
+        $description = isset($pImage['meta']['description'])
             ? $pImage['meta']['description']
-            : null;
+            : $rootAssetField['description'];
+
+        // get root asset path
+        $path = $rootAssetField['path'] ? $rootAssetField['path'] : null;
+        // get root asset colors
+        $colors = $rootAssetField['colors'] ? $rootAssetField['colors'] : null;
+        // get root asset tags
+        $tags = $rootAssetField['tags'] ? $rootAssetField['tags'] : null;
 
         // creat final image object
         $imageObject = [
-            "alt" => $title,
-            "caption" => $caption,
+           // "asset" => $rootAssetField,
+            "path" => $path,
+            "colors" => $colors,
+            "tags" => $tags,
+            "alt" => $alt,
+            "caption" => $description,
             "data" => []
         ];
 

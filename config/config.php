@@ -5,7 +5,7 @@ return [
     "debug" => true,
 
     # cockpit session name
-    'app.name' => 'Willy B',
+    'app.name' => 'cockpit-base',
 
     # cockpit session name
     'session.name' => 'admin',
@@ -35,6 +35,8 @@ return [
             ]
         ]
     ],
+
+    #'site_url' => 'http://localhost/cockpit-base/',
 
     # Define Access-Control (CORS) settings.
     # Those are the default values. You don't need to duplicate them all.

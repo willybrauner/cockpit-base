@@ -1,8 +1,8 @@
 <?php
  return array (
   'name' => 'Home',
-  'label' => 'home',
-  '_id' => 'Home5dd54c3027bbe',
+  'label' => 'Home',
+  '_id' => 'Home5dea86862c622',
   'fields' => 
   array (
     0 => 
@@ -13,7 +13,7 @@
       'default' => '',
       'info' => '',
       'group' => '',
-      'localize' => true,
+      'localize' => false,
       'options' => 
       array (
       ),
@@ -24,6 +24,30 @@
       ),
     ),
     1 => 
+    array (
+      'name' => 'Cover',
+      'label' => '',
+      'type' => 'gallery',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+        'gallery' => 
+        array (
+          'type' => 'gallery',
+          'multiple' => false,
+          'limit' => 1,
+        ),
+      ),
+      'width' => '1-1',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    2 => 
     array (
       'name' => 'Gallery',
       'label' => '',
@@ -41,37 +65,11 @@
       array (
       ),
     ),
-    2 => 
-    array (
-      'name' => 'Image',
-      'label' => '',
-      'type' => 'image',
-      'default' => '',
-      'info' => '',
-      'group' => '',
-      'localize' => false,
-      'options' => 
-      array (
-        'meta' => 
-        array (
-          'title' => 
-          array (
-            'type' => 'text',
-            'label' => 'title',
-          ),
-        ),
-      ),
-      'width' => '1-1',
-      'lst' => true,
-      'acl' => 
-      array (
-      ),
-    ),
     3 => 
     array (
-      'name' => 'Asset',
+      'name' => 'Description',
       'label' => '',
-      'type' => 'asset',
+      'type' => 'markdown',
       'default' => '',
       'info' => '',
       'group' => '',
@@ -88,16 +86,20 @@
   ),
   'template' => '',
   'data' => NULL,
-  '_created' => 1574259760,
-  '_modified' => 1575616879,
+  '_created' => 1575650950,
+  '_modified' => 1575651650,
   'description' => '',
   'acl' => 
   array (
+    'author' => 
+    array (
+      'data' => false,
+    ),
     'public' => 
     array (
-      'edit' => false,
       'data' => true,
     ),
   ),
-  'color' => '#D8334A',
+  'color' => '#48CFAD',
+  'icon' => 'globe.svg',
 );
