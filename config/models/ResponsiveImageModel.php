@@ -1,5 +1,6 @@
 <?php
 
+require __DIR__.'/../helpers/helpers.php';
 
 /**
  * @name ResponsiveImageModel
@@ -47,9 +48,7 @@ class ResponsiveImageModel
             : null;
 
         // get asset field by id
-        $rootAssetField = cockpit()->storage->findOne("cockpit/assets", [
-            "_id" => $assetId
-        ]);
+        $rootAssetField = assetsHelper::getSingleAssetById($assetId);
 
         // if meta title image in the gallery is set
         $alt = isset($pImage['meta']['title'])

@@ -8,7 +8,6 @@
  */
 
 require __DIR__ . '/../../prepare/prepare.php';
-require __DIR__ . '/../../helpers/helpers.php';
 
 // get current language
 $lang = $this->param('lang');
@@ -22,20 +21,19 @@ $page = cockpit('singletons')->getData('Home', [
 $gallery = $page['Gallery'];
 
 
-//$as = cockpit()->storage->findOne("cockpit/assets", [
-//     //'sort' => ['created' => 1]
-//    "_id" => "5dea862e613739ed29000079"
-//]);
-//print_r($as);
-
-
 // return prepareGalleryField($gallery);
 return [
+
+
     "title" => $page["Title"],
-    "cover" => prepareGalleryField($page["Cover"]),
-    //"gallery" => prepareGalleryField($page["Gallery"]),
-    //"assets" => $page['Asset'],
-    //"all" => $page
+
+    // return only 1st element of the gallery
+    "cover" => prepareGalleryField($page["Cover"])[0],
+
+    "gallery" => prepareGalleryField($page["Gallery"]),
+
+
+    //"_" => $page
 
 ];
 
