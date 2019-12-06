@@ -67,11 +67,29 @@
       array (
       ),
     ),
+    3 => 
+    array (
+      'name' => 'Asset',
+      'label' => '',
+      'type' => 'asset',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+      ),
+      'width' => '1-1',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
   ),
   'template' => '',
   'data' => NULL,
   '_created' => 1574259760,
-  '_modified' => 1575564020,
+  '_modified' => 1575616879,
   'description' => '',
   'acl' => 
   array (

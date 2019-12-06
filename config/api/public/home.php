@@ -23,9 +23,11 @@ $gallery = $page['Gallery'];
 
 //return prepareGalleryField($gallery);
 return [
-    "title" => $page["Title"],
-    "image" => prepareImageField($page["Image"]),
+    //"title" => $page["Title"],
+    //"image" => prepareImageField($page["Image"]),
+    "assets" => $page['Asset'],
     "gallery" => prepareGalleryField($page["Gallery"])
+
 ];
 
 //return $page["Image"];
