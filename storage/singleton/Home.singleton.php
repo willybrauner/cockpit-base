@@ -83,11 +83,58 @@
       array (
       ),
     ),
+    4 => 
+    array (
+      'name' => 'Blocks',
+      'label' => '',
+      'type' => 'repeater',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+        'fields' => 
+        array (
+          0 => 
+          array (
+            'type' => 'markdown',
+            'label' => 'Text Block',
+          ),
+          1 => 
+          array (
+            'type' => 'gallery',
+            'label' => 'Image Block',
+          ),
+          2 => 
+          array (
+            'type' => 'repeater',
+            'label' => 'item',
+            'options' => 
+            array (
+              'fields' => 
+              array (
+                0 => 
+                array (
+                  'type' => 'text',
+                  'label' => 'Text component',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+      'width' => '1-1',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
   ),
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575651650,
+  '_modified' => 1575714519,
   'description' => '',
   'acl' => 
   array (
@@ -101,5 +148,5 @@
     ),
   ),
   'color' => '#48CFAD',
-  'icon' => 'globe.svg',
+  'icon' => 'post.svg',
 );

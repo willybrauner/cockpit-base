@@ -20,19 +20,15 @@ $page = cockpit('singletons')->getData('Home', [
 // target gallery
 $gallery = $page['Gallery'];
 
-
-// return prepareGalleryField($gallery);
 return [
-
-
+   // page title
     "title" => $page["Title"],
-
-    // return only 1st element of the gallery
+    // Main Cover return only 1st element of the gallery
     "cover" => prepareGalleryField($page["Cover"])[0],
-
+    // gallery
     "gallery" => prepareGalleryField($page["Gallery"]),
-
-
+    // Blocks
+    "blocks" => prepareBlockBuilder($page['Blocks']),
     //"_" => $page
 
 ];
