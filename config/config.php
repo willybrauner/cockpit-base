@@ -15,8 +15,9 @@ return [
     'languages' => [
         # setting a default language is optional
         'default' => 'English',
-
+        // french
         'fr' => 'French',
+        'de' => 'German',
     ],
 
     # define additional groups
