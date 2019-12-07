@@ -13,7 +13,7 @@
       'default' => '',
       'info' => '',
       'group' => '',
-      'localize' => false,
+      'localize' => true,
       'options' => 
       array (
       ),
@@ -71,13 +71,13 @@
     ),
     3 => 
     array (
-      'name' => 'Gallery',
+      'name' => 'Description',
       'label' => '',
-      'type' => 'gallery',
+      'type' => 'markdown',
       'default' => '',
       'info' => '',
       'group' => '',
-      'localize' => false,
+      'localize' => true,
       'options' => 
       array (
       ),
@@ -89,9 +89,9 @@
     ),
     4 => 
     array (
-      'name' => 'Description',
+      'name' => 'Gallery',
       'label' => '',
-      'type' => 'markdown',
+      'type' => 'gallery',
       'default' => '',
       'info' => '',
       'group' => '',
@@ -113,7 +113,7 @@
       'default' => '',
       'info' => '',
       'group' => '',
-      'localize' => false,
+      'localize' => true,
       'options' => 
       array (
         'fields' => 
@@ -156,7 +156,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575733293,
+  '_modified' => 1575738296,
   'description' => '',
   'acl' => 
   array (
