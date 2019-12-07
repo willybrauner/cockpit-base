@@ -17,13 +17,35 @@
       'options' => 
       array (
       ),
-      'width' => '1-1',
+      'width' => '1-2',
       'lst' => true,
       'acl' => 
       array (
       ),
     ),
     1 => 
+    array (
+      'name' => 'Categories',
+      'label' => 'Categories',
+      'type' => 'collectionlink',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+        'link' => 'Categories',
+        'display' => 'name',
+        'multiple' => true,
+        'limit' => 8,
+      ),
+      'width' => '1-2',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    2 => 
     array (
       'name' => 'Cover',
       'label' => '',
@@ -47,7 +69,7 @@
       array (
       ),
     ),
-    2 => 
+    3 => 
     array (
       'name' => 'Gallery',
       'label' => '',
@@ -65,7 +87,7 @@
       array (
       ),
     ),
-    3 => 
+    4 => 
     array (
       'name' => 'Description',
       'label' => '',
@@ -83,7 +105,7 @@
       array (
       ),
     ),
-    4 => 
+    5 => 
     array (
       'name' => 'Blocks',
       'label' => '',
@@ -134,7 +156,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575714519,
+  '_modified' => 1575733293,
   'description' => '',
   'acl' => 
   array (

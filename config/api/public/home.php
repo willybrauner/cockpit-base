@@ -1,4 +1,3 @@
-
 <?php
 /**
  * Home SingleTons
@@ -28,6 +27,7 @@ return [
     // Blocks
     "blocks" => prepareBlockBuilder($page['Blocks']),
     //"_" => $page
+    "categories" => $page["Categories"],
 
 ];
 
