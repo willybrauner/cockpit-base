@@ -22,7 +22,7 @@ function prepareBlockBuilder (array $pBlocks) :array
             ],
             "MarkdownBlock"=> [
                 "fieldName" => "markdown",
-                "prepare" => $block['value']
+                "prepare" => prepareMarkdownField($block['value'])
             ],
         ];
 

@@ -1,7 +1,6 @@
 <?php
 /**
  * Home SingleTons
- *
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  * @access http://localhost/cockpit-base/trunk/api/public/home
  */
@@ -16,12 +15,11 @@ $page = cockpit('singletons')->getData('Home', [
     'lang' => $lang
 ]);
 
-// target gallery
-$gallery = $page['Gallery'];
-
 return [
    // page title
     "title" => $page["Title"],
+    // desc
+    "description" => prepareMarkdownField($page["Description"]),
     // Main Cover return only 1st element of the gallery
     "cover" => prepareGalleryField($page["Cover"])[0],
     // gallery
