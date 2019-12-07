@@ -10,7 +10,6 @@ return [
     # cockpit session name
     'session.name' => 'admin',
 
-
     # define the languages you want to manage
     'languages' => [
         # setting a default language is optional

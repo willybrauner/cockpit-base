@@ -18,17 +18,27 @@ $page = cockpit('singletons')->getData('Home', [
 return [
    // page title
     "title" => $page["Title"],
+
     // desc
     "description" => prepareMarkdownField($page["Description"]),
+
+    // video
+    "video" => $page["Video"],
+
     // Main Cover return only 1st element of the gallery
     "cover" => prepareGalleryField($page["Cover"])[0],
+
     // gallery
     "gallery" => prepareGalleryField($page["Gallery"]),
+
     // Blocks
     "blocks" => prepareBlockBuilder($page['Blocks']),
-    //"_" => $page
+
+    // cat
     "categories" => $page["Categories"],
 
+    // return non formated page data
+    //"_" => $page
 ];
 
 

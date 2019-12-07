@@ -47,6 +47,24 @@
     ),
     2 => 
     array (
+      'name' => 'Video',
+      'label' => 'video',
+      'type' => 'asset',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+      ),
+      'width' => '1-1',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    3 => 
+    array (
       'name' => 'Cover',
       'label' => '',
       'type' => 'gallery',
@@ -69,7 +87,7 @@
       array (
       ),
     ),
-    3 => 
+    4 => 
     array (
       'name' => 'Description',
       'label' => '',
@@ -87,7 +105,7 @@
       array (
       ),
     ),
-    4 => 
+    5 => 
     array (
       'name' => 'Gallery',
       'label' => '',
@@ -105,7 +123,7 @@
       array (
       ),
     ),
-    5 => 
+    6 => 
     array (
       'name' => 'Blocks',
       'label' => '',
@@ -156,7 +174,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575738296,
+  '_modified' => 1575740744,
   'description' => '',
   'acl' => 
   array (

@@ -17,11 +17,15 @@ class assetsHelper
 
     /**
      * Get single assets by ID
-     * @param $pId
+     * @param string $pId
      * @return array
      */
     static function getSingleAssetById($pId): array
     {
+        // check
+        if (!isset($pId)) return [];
+
+        // return if asset exist
         return cockpit()->storage->findOne("cockpit/assets", [
             "_id" => $pId
         ]);
