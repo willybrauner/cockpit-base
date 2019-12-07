@@ -4,6 +4,8 @@
  * Request "Categories" Collection
  */
 
+require __DIR__ . '/../../prepare/prepare.php';
+
 // get optionnal param lang
 $lang = $this->param('lang');
 
@@ -19,7 +21,7 @@ foreach ( $collection as $category )
 {
     $categories[] = [
         "name" => $category['Name'],
-        "description" => $category['Description']
+        "description" => prepareMarkdownField($category['Description'])
     ];
 }
 
