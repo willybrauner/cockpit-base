@@ -15,14 +15,14 @@ $collection = cockpit('collections')->find('Categories', [
 ]);
 
 // prepare categories
-$categories = [];
+$formatedCollection = [];
 
-foreach ( $collection as $category )
+// map each item
+foreach ( $collection as $item )
 {
-    $categories[] = [
-        "name" => $category['Name'],
-        "description" => prepareMarkdownField($category['Description'])
-    ];
+    // push in array
+    $formatedCollection[] = prepareCategory($item);
 }
 
-return $categories;
+// return collection
+return $formatedCollection;
