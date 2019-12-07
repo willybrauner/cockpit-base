@@ -20,7 +20,7 @@ function prepareGalleryField ($pGallery) :array
         // create format gallery array
         $formatGallery = [];
 
-        // map of each  gallery image
+        // map each images
         foreach ($pGallery as $item)
         {
             // push format responsive image result in array
@@ -29,6 +29,5 @@ function prepareGalleryField ($pGallery) :array
 
         // return the formated array
         return $formatGallery;
-        //return $pGallery;
     }
 }

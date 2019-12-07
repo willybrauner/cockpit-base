@@ -134,7 +134,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575674132,
+  '_modified' => 1575714519,
   'description' => '',
   'acl' => 
   array (
@@ -148,5 +148,5 @@
     ),
   ),
   'color' => '#48CFAD',
-  'icon' => 'globe.svg',
+  'icon' => 'post.svg',
 );
