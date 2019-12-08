@@ -45,10 +45,38 @@
   'sortable' => false,
   'in_menu' => false,
   '_created' => 1575719930,
-  '_modified' => 1575719948,
+  '_modified' => 1575804092,
   'color' => '#FFCE54',
   'acl' => 
   array (
+    'public' => 
+    array (
+      'entries_view' => false,
+      'entries_edit' => false,
+      'entries_create' => false,
+    ),
+    'author' => 
+    array (
+      'collection_edit' => true,
+      'entries_view' => false,
+      'entries_edit' => false,
+      'entries_create' => false,
+      'entries_delete' => false,
+    ),
+    'editor' => 
+    array (
+      'entries_view' => true,
+      'entries_edit' => true,
+      'entries_create' => true,
+      'entries_delete' => true,
+    ),
+    'Publisher' => 
+    array (
+      'entries_view' => true,
+      'entries_edit' => true,
+      'entries_create' => true,
+      'entries_delete' => true,
+    ),
   ),
   'rules' => 
   array (
@@ -70,4 +98,8 @@
     ),
   ),
   'icon' => 'tickets.svg',
+  'contentpreview' => 
+  array (
+    'enabled' => false,
+  ),
 );
