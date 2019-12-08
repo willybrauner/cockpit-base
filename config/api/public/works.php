@@ -5,7 +5,6 @@
  */
 
 require __DIR__ . '/../../prepare/prepare.php';
-require __DIR__ . '/../../models/models.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
@@ -18,13 +17,9 @@ $collection = cockpit('collections')->find('Works', [
 // prepare categories
 $formatCollection = [];
 
-
 // map all this collection
 foreach ( $collection as $item )
 {
-
-
-
 
     $formatCollection[] = [
 
@@ -44,7 +39,6 @@ foreach ( $collection as $item )
         "description" => prepareMarkdownField($item['Description'])
     ];
 
-
 }
 
-return  $formatCollection;
+return $formatCollection;
