@@ -13,17 +13,56 @@
       'default' => '',
       'info' => '',
       'group' => '',
-      'localize' => false,
+      'localize' => true,
       'options' => 
       array (
+        'slug' => true,
       ),
-      'width' => '1-2',
+      'width' => '1-1',
       'lst' => true,
       'acl' => 
       array (
       ),
     ),
     1 => 
+    array (
+      'name' => 'Slug',
+      'label' => 'Slug',
+      'type' => 'text',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => true,
+      'options' => 
+      array (
+        'type' => 'Text',
+        'slug' => true,
+      ),
+      'width' => '1-3',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    2 => 
+    array (
+      'name' => 'Publish',
+      'label' => 'Publish ',
+      'type' => 'boolean',
+      'default' => '',
+      'info' => '',
+      'group' => '',
+      'localize' => false,
+      'options' => 
+      array (
+      ),
+      'width' => '1-3',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    3 => 
     array (
       'name' => 'Categories',
       'label' => '',
@@ -39,13 +78,13 @@
         'multiple' => false,
         'limit' => 1,
       ),
-      'width' => '1-2',
+      'width' => '1-3',
       'lst' => true,
       'acl' => 
       array (
       ),
     ),
-    2 => 
+    4 => 
     array (
       'name' => 'Gallery',
       'label' => '',
@@ -63,7 +102,7 @@
       array (
       ),
     ),
-    3 => 
+    5 => 
     array (
       'name' => 'Description',
       'label' => '',
@@ -85,7 +124,7 @@
   'sortable' => false,
   'in_menu' => false,
   '_created' => 1575733614,
-  '_modified' => 1575804362,
+  '_modified' => 1575811659,
   'color' => '#A0D468',
   'acl' => 
   array (

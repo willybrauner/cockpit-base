@@ -16,6 +16,7 @@
       'localize' => true,
       'options' => 
       array (
+        'slug' => true,
       ),
       'width' => '1-2',
       'lst' => true,
@@ -47,6 +48,24 @@
     ),
     2 => 
     array (
+      'name' => 'Slug',
+      'label' => 'Slug',
+      'type' => 'text',
+      'default' => '',
+      'info' => '',
+      'group' => 'meta',
+      'localize' => false,
+      'options' => 
+      array (
+      ),
+      'width' => '1-2',
+      'lst' => true,
+      'acl' => 
+      array (
+      ),
+    ),
+    3 => 
+    array (
       'name' => 'Cover',
       'label' => '',
       'type' => 'gallery',
@@ -69,7 +88,7 @@
       array (
       ),
     ),
-    3 => 
+    4 => 
     array (
       'name' => 'Description',
       'label' => '',
@@ -87,7 +106,7 @@
       array (
       ),
     ),
-    4 => 
+    5 => 
     array (
       'name' => 'Gallery',
       'label' => '',
@@ -105,7 +124,7 @@
       array (
       ),
     ),
-    5 => 
+    6 => 
     array (
       'name' => 'Blocks',
       'label' => '',
@@ -156,7 +175,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575804137,
+  '_modified' => 1575808360,
   'description' => '',
   'acl' => 
   array (

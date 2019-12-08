@@ -5,6 +5,7 @@
  */
 
 require __DIR__ . '/../../prepare/prepare.php';
+require __DIR__ . '/../../models/models.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
@@ -21,10 +22,17 @@ $formatCollection = [];
 // map all this collection
 foreach ( $collection as $item )
 {
+
+
+
+
     $formatCollection[] = [
 
         // Title
         "title" => $item['Title'],
+
+        // Slug
+        "slug" => SlugModel::format($item['Slug'], $item['Title']),
 
         // category
         "category" => prepareCategory($item['Categories']),
@@ -35,6 +43,8 @@ foreach ( $collection as $item )
         // description
         "description" => prepareMarkdownField($item['Description'])
     ];
+
+
 }
 
 return  $formatCollection;

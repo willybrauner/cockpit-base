@@ -19,6 +19,12 @@ return [
         'fr' => 'French',
         'de' => 'German',
     ],
+//
+//    "unique_slugs" => [
+//        'collections' => [
+//            'Works'=> 'Title'
+//        ]
+//    ],
 
     #'site_url' => 'http://localhost/cockpit-base/',
 
