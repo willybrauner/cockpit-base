@@ -5,8 +5,11 @@
  * @param array $pCategory
  * @return array
  */
-function prepareCategory(array $pCategory) :array
+function prepareCategory($pCategory) :array
 {
+    // check
+    if (!isset($pCategory)) return [];
+
     // get ID
     $id = (string)$pCategory['_id'];
 
