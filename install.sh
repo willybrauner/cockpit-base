@@ -36,7 +36,7 @@ echo "Done."
 echo ""
 
 # Install backoffice Translation i18n
-echo "> Download Cockpit CMS from https://github.com/agentejo/cockpit-i18n/archive/master.zip"
+echo "> Download i18n from https://github.com/agentejo/cockpit-i18n/archive/master.zip"
 curl -L -sS https://github.com/agentejo/cockpit-i18n/archive/master.zip > cockpit-i18n-master.zip
 echo "> Install archive..."
 unzip -q cockpit-i18n-master.zip
@@ -52,7 +52,7 @@ echo "Done."
 echo ""
 
 # Install Group addons
-echo "> Download Cockpit CMS from https://github.com/serjoscha87/cockpit_GROUPS/archive/master.zip"
+echo "> Download Group addons from https://github.com/serjoscha87/cockpit_GROUPS/archive/master.zip"
 curl -L -sS https://github.com/serjoscha87/cockpit_GROUPS/archive/master.zip > cockpit_GROUPS-master.zip
 echo "> Install archive..."
 unzip -q cockpit_GROUPS-master.zip
