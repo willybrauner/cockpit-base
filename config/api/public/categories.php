@@ -4,7 +4,7 @@
  * Request "Categories" Collection
  */
 
-require __DIR__ . '/../../prepare/prepare.php';
+require __DIR__ . '/../../models/models.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
@@ -21,7 +21,7 @@ $formatedCollection = [];
 foreach ( $collection as $item )
 {
     // push in array
-    $formatedCollection[] = prepareCategory($item);
+    $formatedCollection[] = categoryModel($item);
 }
 
 // return collection

@@ -9,8 +9,6 @@
 .env
 composer.lock
 package-lock.json
-
-# lib
 /lib/**/doc/*
 /lib/**/docs/*
 /lib/**/example/*
@@ -19,31 +17,16 @@ package-lock.json
 /lib/**/test/*
 /lib/**/\.travis/*
 /lib/**/\.travis.yml
-
-# storage
 /storage/*.*
 /storage/*/*
-
-# expept...
-!/storage/*/index.html
-!/storage/*/.htaccess
-!/storage/collections/*.*
-!/storage/collections/*/*
-!/storage/collections/*
-!/storage/singleton/*.*
-!/storage/singleton/*/*
-!/storage/uploads/*.*
-!/storage/uploads/*
-!/storage/uploads/*/*
-!/storage/uploads/*/*/*
-!/storage/uploads/*/*/*/*
-
+/config/*
 /tests/*
 /node_modules
 addons/
 !.gitignore
 !.gitkeep
-
+!/storage/*/index.html
+!/storage/*/.htaccess
 defines.php
 # Sublime Text
 *.sublime-workspace

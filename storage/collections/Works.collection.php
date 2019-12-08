@@ -124,7 +124,7 @@
   'sortable' => false,
   'in_menu' => false,
   '_created' => 1575733614,
-  '_modified' => 1575811659,
+  '_modified' => 1575832432,
   'color' => '#A0D468',
   'acl' => 
   array (
@@ -156,6 +156,13 @@
       'entries_delete' => true,
     ),
     'Publisher' => 
+    array (
+      'entries_view' => true,
+      'entries_edit' => true,
+      'entries_create' => true,
+      'entries_delete' => true,
+    ),
+    'Editor' => 
     array (
       'entries_view' => true,
       'entries_edit' => true,

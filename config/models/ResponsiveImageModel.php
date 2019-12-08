@@ -1,6 +1,5 @@
 <?php
 
-require __DIR__.'/../helpers/helpers.php';
 
 /**
  * @name ResponsiveImageModel
@@ -8,7 +7,6 @@ require __DIR__.'/../helpers/helpers.php';
  */
 class ResponsiveImageModel
 {
-
     /**
      * Sizes list
      */
@@ -33,7 +31,6 @@ class ResponsiveImageModel
         return cockpit('cockpit')->thumbnail($config);
     }
 
-
     /**
      * compute Image as array of objects
      * @param $pImage
@@ -43,31 +40,29 @@ class ResponsiveImageModel
     {
         // get meta asset id
         // allow to request the root asset field with additional information
-        $assetId = isset($pImage['meta']['asset'])
-            ? $pImage['meta']['asset']
-            : null;
+        $assetId = $pImage['meta']['asset'] ?? null;
 
         // get asset field by id
-        $rootAssetField = assetsHelper::getSingleAssetById($assetId);
+        $rootAssetField = cockpit()->storage->findOne("cockpit/assets", [
+            "_id" => $assetId
+        ]);
 
-        // if meta title image in the gallery is set
-        $alt = isset($pImage['meta']['title'])
-            // show this title
-            ? $pImage['meta']['title']
+        // if meta title image in the gallery is set, set it
+        $alt = ($pImage['meta']['title'])
             // else, show the root title of image (asset folder)
-            : $rootAssetField['title'];
+            ?? $rootAssetField['title'];
 
-        // same
-        $description = isset($pImage['meta']['description'])
-            ? $pImage['meta']['description']
-            : $rootAssetField['description'];
+        // if meta desc image in the gallery is set, set it
+        $description = ($pImage['meta']['description'])
+            // else, show the root desc of image (asset folder)
+            ?? $rootAssetField['description'];
 
         // get root asset path
-        $path = $rootAssetField['path'] ? $rootAssetField['path'] : null;
+        $path = $rootAssetField['path'] ?? null;
         // get root asset colors
-        $colors = $rootAssetField['colors'] ? $rootAssetField['colors'] : null;
+        $colors = $rootAssetField['colors'] ?? null;
         // get root asset tags
-        $tags = $rootAssetField['tags'] ? $rootAssetField['tags'] : null;
+        $tags = $rootAssetField['tags'] ?? null;
 
         // creat final image object
         $imageObject = [
@@ -90,7 +85,7 @@ class ResponsiveImageModel
             $url = $this->generateThumbnail($pImage["path"], $size);
 
             // check if url exist
-            if (!isset($url)) return;
+            if (!isset($url) || $url == "") return;
 
             // get image size
             $imageSize = getimagesize($url);

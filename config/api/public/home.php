@@ -5,7 +5,7 @@
  * @access http://localhost/cockpit-base/trunk/api/public/home
  */
 
-require __DIR__ . '/../../prepare/prepare.php';
+require __DIR__ . '/../../models/models.php';
 
 // get current language
 $lang = $this->param('lang');
@@ -23,16 +23,16 @@ return [
     "slug" => SlugModel::format($page['Slug'], $page['Title']),
 
     // desc
-    "description" => prepareMarkdownField($page["Description"]),
+    "description" => markdownFieldModel($page["Description"]),
 
     // Main Cover return only 1st element of the gallery
-    "cover" => prepareGalleryField($page["Cover"])[0],
+    "cover" => galleryFieldModel($page["Cover"])[0],
 
     // gallery
-    "gallery" => prepareGalleryField($page["Gallery"]),
+    "gallery" => galleryFieldModel($page["Gallery"]),
 
     // Blocks
-    "blocks" => prepareBlockBuilder($page['Blocks']),
+    "blocks" => blocksModel($page['Blocks']),
 
     //"_" => $page
     "categories" => $page["Categories"],

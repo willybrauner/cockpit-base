@@ -4,7 +4,7 @@
  * Request "Works" Collection
  */
 
-require __DIR__ . '/../../prepare/prepare.php';
+require __DIR__ . '/../../models/models.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
@@ -30,13 +30,13 @@ foreach ( $collection as $item )
         "slug" => SlugModel::format($item['Slug'], $item['Title']),
 
         // category
-        "category" => prepareCategory($item['Categories']),
+        "category" => categoryModel($item['Categories']),
 
         // gallery
-        "gallery" => prepareGalleryField($item['Gallery']),
+        "gallery" => galleryFieldModel($item['Gallery']),
 
         // description
-        "description" => prepareMarkdownField($item['Description'])
+        "description" => markdownFieldModel($item['Description'])
     ];
 
 }

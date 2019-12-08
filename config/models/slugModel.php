@@ -36,30 +36,30 @@ class SlugModel
     /**
      *
      * Slugify text
-     * @param $text
+     * @param $pText
      * @return string|string[]|null
      */
-    static private function slugify($text)
+    static private function slugify($pText)
     {
         // replace non letter or digits by -
-        $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+        $pText = preg_replace('~[^\pL\d]+~u', '-', $pText);
 
         // transliterate (represent sounds with a different alphabet)
         //$text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
 
         // remove unwanted characters
-        $text = preg_replace('~[^-\w]+~', '', $text);
+        $pText = preg_replace('~[^-\w]+~', '', $pText);
 
         // trim
-        $text = trim($text, '-');
+        $pText = trim($pText, '-');
 
         // remove duplicate -
-        $text = preg_replace('~-+~', '-', $text);
+        $pText = preg_replace('~-+~', '-', $pText);
 
         // lowercase
-        $text = strtolower($text);
+        $pText = strtolower($pText);
 
-        return $text;
+        return $pText;
     }
 }
 

@@ -10,7 +10,6 @@ return [
     # cockpit session name
     'session.name' => 'admin',
 
-
     # define the languages you want to manage
     'languages' => [
         # setting a default language is optional
@@ -19,14 +18,6 @@ return [
         'fr' => 'French',
         'de' => 'German',
     ],
-//
-//    "unique_slugs" => [
-//        'collections' => [
-//            'Works'=> 'Title'
-//        ]
-//    ],
-
-    #'site_url' => 'http://localhost/cockpit-base/',
 
     # Define Access-Control (CORS) settings.
     # Those are the default values. You don't need to duplicate them all.

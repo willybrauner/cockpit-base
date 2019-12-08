@@ -175,7 +175,7 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575808360,
+  '_modified' => 1575832451,
   'description' => '',
   'acl' => 
   array (
@@ -200,6 +200,11 @@
       'form' => true,
     ),
     'Publisher' => 
+    array (
+      'form' => true,
+      'data' => true,
+    ),
+    'Editor' => 
     array (
       'form' => true,
       'data' => true,
