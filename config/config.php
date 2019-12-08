@@ -19,7 +19,7 @@ return [
         'fr' => 'French',
         'de' => 'German',
     ],
-    
+
     #'site_url' => 'http://localhost/cockpit-base/',
 
     # Define Access-Control (CORS) settings.
