@@ -85,10 +85,44 @@
   'sortable' => false,
   'in_menu' => false,
   '_created' => 1575733614,
-  '_modified' => 1575735631,
+  '_modified' => 1575804362,
   'color' => '#A0D468',
   'acl' => 
   array (
+    'author' => 
+    array (
+      'collection_edit' => false,
+      'entries_view' => false,
+      'entries_edit' => false,
+      'entries_create' => false,
+      'entries_delete' => false,
+    ),
+    '' => 
+    array (
+      'collection_edit' => false,
+    ),
+    'public' => 
+    array (
+      'entries_view' => false,
+      'entries_edit' => false,
+      'entries_create' => false,
+      'entries_delete' => false,
+    ),
+    'editor' => 
+    array (
+      'collection_edit' => true,
+      'entries_view' => true,
+      'entries_edit' => true,
+      'entries_create' => true,
+      'entries_delete' => true,
+    ),
+    'Publisher' => 
+    array (
+      'entries_view' => true,
+      'entries_edit' => true,
+      'entries_create' => true,
+      'entries_delete' => true,
+    ),
   ),
   'rules' => 
   array (
@@ -114,4 +148,5 @@
   array (
     'enabled' => false,
   ),
+  'group' => '',
 );

@@ -156,16 +156,33 @@
   'template' => '',
   'data' => NULL,
   '_created' => 1575650950,
-  '_modified' => 1575738296,
+  '_modified' => 1575804137,
   'description' => '',
   'acl' => 
   array (
     'author' => 
     array (
-      'data' => false,
+      'data' => true,
+      'form' => false,
+      'edit' => false,
     ),
     'public' => 
     array (
+      'data' => true,
+    ),
+    'editor' => 
+    array (
+      'form' => true,
+      'data' => true,
+    ),
+    'publisher' => 
+    array (
+      'data' => true,
+      'form' => true,
+    ),
+    'Publisher' => 
+    array (
+      'form' => true,
       'data' => true,
     ),
   ),

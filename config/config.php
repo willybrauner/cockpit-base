@@ -19,24 +19,7 @@ return [
         'fr' => 'French',
         'de' => 'German',
     ],
-
-    # define additional groups
-    'groups' => [
-        'author' => [
-            '$admin' => false,
-            '$vars' => [
-                'finder.path' => '/storage/upload'
-            ],
-            'cockpit' => [
-                'backend' => true,
-                'finder' => true
-            ],
-            'collections' => [
-                'manage' => true
-            ]
-        ]
-    ],
-
+    
     #'site_url' => 'http://localhost/cockpit-base/',
 
     # Define Access-Control (CORS) settings.
