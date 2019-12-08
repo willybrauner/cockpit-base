@@ -20,15 +20,17 @@ echo "Done."
 echo ""
 
 # Copy starter storage
-echo "> Copy starter storage folder"
-cp -r starter/storage ${DOCROOT}
+echo "> Unzip starter storage folder..."
+unzip -q starter/storage.zip
+echo "> Copy starter storage folder..."
+mv starter/storage ${DOCROOT}
 echo "> Change access right..."
 chmod -R 0777 ${DOCROOT}/storage
 echo "Done."
 echo ""
 
 # Copy starter storage
-echo "> Copy starter config folder"
+echo "> Copy starter config folder..."
 cp -r starter/config ${DOCROOT}
 echo "> Change access right..."
 chmod -R 0777 ${DOCROOT}/config
