@@ -7,6 +7,21 @@ if [ -d ${DOCROOT} ]; then
   exit 1
 fi
 
+
+curl -L -sS https://github.com/willybrauner/cockpit-base/archive/master.zip > cockpit-base-master.zip
+echo "Done !"
+echo ""
+
+echo "Installing archive..."
+unzip -q cockpit-base-master.zip
+rm cockpit-base-master.zip
+mv cockpit-base-master/* ./
+mv cockpit-base-master/.idea ./.idea
+mv cockpit-base-master/.gitignore ./
+rm -r cockpit-base-master/
+echo "Done !"
+echo ""
+
 echo "> Downloading Cockpit CMS from https://github.com/agentejo/cockpit/archive/next.zip"
 curl -L -sS https://github.com/agentejo/cockpit/archive/next.zip > cockpit-next.zip
 unzip -q cockpit-next.zip
