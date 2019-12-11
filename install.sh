@@ -2,19 +2,6 @@
 
 SUBFOLDER="www"
 
-echo "Downloading cockpit-base archive..."
-curl -L -sS https://github.com/willybrauner/cockpit-base/archive/master.zip > cockpit-base-master.zip
-echo "Done !"
-echo ""
-
-echo "Installing archive..."
-unzip -q cockpit-base-master.zip
-rm cockpit-base-master.zip
-mv cockpit-base-master/* ./
-rm -r cockpit-base-master/
-echo "Done !"
-echo ""
-
 echo "> Downloading Cockpit CMS from https://github.com/agentejo/cockpit/archive/next.zip"
 curl -L -sS https://github.com/agentejo/cockpit/archive/next.zip > cockpit-next.zip
 unzip -q cockpit-next.zip
@@ -57,20 +44,27 @@ rm -r cockpit_GROUPS-master
 echo "Done."
 echo ""
 
-echo "> Remove config & storages files folder..."
+echo "> Remove unused files and folders files folder..."
 rm -rf config/
 rm -rf storage.zip
 rm -rf .gitignore
 rm -rf README.md
 rm -rf install.sh
+rm -rf .git
+echo "Done."
+echo ""
 
 echo "> Move all ${SUBFOLDER} content on root folder..."
 mv ${SUBFOLDER}/* ./
 mv ${SUBFOLDER}/.* ./
+echo "Done."
+echo ""
 
 echo "> Remove ${SUBFOLDER} empty folder..."
 rm -rf ${SUBFOLDER}
+echo "Done."
+echo ""
 
-echo "> Cockpit is ready!"
+echo "> Cockpit-base is ready!"
 echo ""
 
