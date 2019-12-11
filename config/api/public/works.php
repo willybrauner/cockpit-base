@@ -36,7 +36,10 @@ foreach ( $collection as $item )
         "gallery" => galleryFieldModel($item['Gallery']),
 
         // description
-        "description" => markdownFieldModel($item['Description'])
+        "description" => markdownFieldModel($item['Description']),
+
+        // Blocks
+        "blocks" => blocksModel($item['Blocks']),
     ];
 
 }

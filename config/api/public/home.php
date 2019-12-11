@@ -31,9 +31,6 @@ return [
     // gallery
     "gallery" => galleryFieldModel($page["Gallery"]),
 
-    // Blocks
-    "blocks" => blocksModel($page['Blocks']),
-
     //"_" => $page
     "categories" => $page["Categories"],
 
