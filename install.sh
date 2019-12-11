@@ -68,6 +68,9 @@ rm -rf install.sh
 
 echo "> Move all ${DOCROOT} content on root folder..."
 mv www/* ./
+mv www/.gitignore ./
+mv www/.htaccess ./
+mv www/.php_cs.dist ./
 
 echo "> Remove ${DOCROOT} empty folder..."
 rm -rf www/
