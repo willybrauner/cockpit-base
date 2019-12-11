@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-DOCROOT="www"
+SUBFOLDER="www"
 
 echo "Downloading cockpit-base archive..."
 curl -L -sS https://github.com/willybrauner/cockpit-base/archive/master.zip > cockpit-base-master.zip
@@ -11,7 +11,6 @@ echo "Installing archive..."
 unzip -q cockpit-base-master.zip
 rm cockpit-base-master.zip
 mv cockpit-base-master/* ./
-mv cockpit-base-master/.gitignore ./
 rm -r cockpit-base-master/
 echo "Done !"
 echo ""
@@ -20,24 +19,22 @@ echo "> Downloading Cockpit CMS from https://github.com/agentejo/cockpit/archive
 curl -L -sS https://github.com/agentejo/cockpit/archive/next.zip > cockpit-next.zip
 unzip -q cockpit-next.zip
 rm cockpit-next.zip
-mv cockpit-next $DOCROOT
+mv cockpit-next ${SUBFOLDER}
 echo "Done."
 echo ""
 
 echo "> Installing starter storage folder..."
-cd starter/ || exit
 unzip -q storage.zip
 rm -rf __MACOSX
-cd ../
-rm -rf ${DOCROOT}/storage/
-mv starter/storage ${DOCROOT}/
-chmod -R 0777 ${DOCROOT}/storage
+rm -rf ${SUBFOLDER}/storage/
+mv storage ${SUBFOLDER}/
+chmod -R 0777 ${SUBFOLDER}/storage
 echo "Done."
 echo ""
 
 echo "> Installing starter config folder..."
-cp -r starter/config ${DOCROOT}
-chmod -R 0777 ${DOCROOT}/config
+cp -r config ${SUBFOLDER}
+chmod -R 0777 ${SUBFOLDER}/config
 echo "Done."
 echo ""
 
@@ -45,9 +42,9 @@ echo "> Downloading i18n from https://github.com/agentejo/cockpit-i18n/archive/m
 curl -L -sS https://github.com/agentejo/cockpit-i18n/archive/master.zip > cockpit-i18n-master.zip
 unzip -q cockpit-i18n-master.zip
 rm cockpit-i18n-master.zip
-mkdir -p ${DOCROOT}/config/cockpit/i18n
+mkdir -p ${SUBFOLDER}/config/cockpit/i18n
 mv cockpit-i18n-master i18n
-mv i18n ${DOCROOT}/config/cockpit
+mv i18n ${SUBFOLDER}/config/cockpit
 echo "Done."
 echo ""
 
@@ -55,25 +52,24 @@ echo "> Downloading Group addons from https://github.com/serjoscha87/cockpit_GRO
 curl -L -sS https://github.com/serjoscha87/cockpit_GROUPS/archive/master.zip > cockpit_GROUPS-master.zip
 unzip -q cockpit_GROUPS-master.zip
 rm cockpit_GROUPS-master.zip
-mv cockpit_GROUPS-master/Groups ${DOCROOT}/addons
+mv cockpit_GROUPS-master/Groups ${SUBFOLDER}/addons
 rm -r cockpit_GROUPS-master
 echo "Done."
 echo ""
 
-echo "> Remove starter files folder..."
-rm -rf starter/
+echo "> Remove config & storages files folder..."
+rm -rf config/
+rm -rf storage.zip
 rm -rf .gitignore
 rm -rf README.md
 rm -rf install.sh
 
-echo "> Move all ${DOCROOT} content on root folder..."
-mv www/* ./
-mv www/.gitignore ./
-mv www/.htaccess ./
-mv www/.php_cs.dist ./
+echo "> Move all ${SUBFOLDER} content on root folder..."
+mv ${SUBFOLDER}/* ./
+mv ${SUBFOLDER}/.* ./
 
-echo "> Remove ${DOCROOT} empty folder..."
-rm -rf www/
+echo "> Remove ${SUBFOLDER} empty folder..."
+rm -rf ${SUBFOLDER}
 
 echo "> Cockpit is ready!"
 echo ""
