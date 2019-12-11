@@ -3,6 +3,6 @@
 # Install
 
 ```shell script
-$ ./install.sh
+curl https://raw.githubusercontent.com/willybrauner/cockpit-base/master/install.sh | sh
 ```
 
