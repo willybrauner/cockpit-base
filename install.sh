@@ -60,12 +60,17 @@ rm -r cockpit_GROUPS-master
 echo "Done."
 echo ""
 
+echo "> Remove starter files folder..."
+rm -rf starter/
+rm -rf .gitignore
+rm -rf README.md
+rm -rf install.sh
 
 echo "> Move all ${DOCROOT} content on root folder..."
 mv www/* ./
 
-echo "> Remove starter folder..."
-rm -rf starter/
+echo "> Remove ${DOCROOT} empty folder..."
+rm -rf www/
 
 echo "> Cockpit is ready!"
 echo ""
