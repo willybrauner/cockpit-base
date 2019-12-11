@@ -14,7 +14,7 @@ class SlugModel
      * @param $pTitle
      * @return string|string[]|null
      */
-    static public function format($pSlug, $pTitle): string
+    static public function format($pSlug, $pTitle)
     {
         // check if slug exist
         if (isset($pSlug) && $pSlug != '')
@@ -28,13 +28,12 @@ class SlugModel
             return SlugModel::slugify( $pTitle );
         }
         else {
-            return "";
+            return null;
         }
     }
 
 
     /**
-     *
      * Slugify text
      * @param $pText
      * @return string|string[]|null

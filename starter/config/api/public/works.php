@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Request "Works" Collection
+ * Request Works Collection and build custom API
  */
 
 require __DIR__ . '/../../models/models.php';

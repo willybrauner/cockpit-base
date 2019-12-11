@@ -11,9 +11,6 @@ require __DIR__ . "/../models/models.php";
 
 function galleryFieldModel ($pGallery)
 {
-    // instance of our helper
-    $ResponsiveImageHelper = new ResponsiveImageModel();
-
     // if param is not empty
     if(!isset($pGallery)) return null;
 
@@ -24,7 +21,7 @@ function galleryFieldModel ($pGallery)
     foreach ($pGallery as $item)
     {
         // push format responsive image result in array
-        $formatGallery[] = $ResponsiveImageHelper->computeImage($item);
+        $formatGallery[] = isset($item) ? ResponsiveImageModel::computeImage($item) : null;
     }
 
     // return the formated array

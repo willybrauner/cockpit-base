@@ -13,30 +13,11 @@ class ResponsiveImageModel
     private static $sizes = [640, 768, 1024, 1440, 1960];
 
     /**
-     * Return a single image object
-     * @param $pImagePath
-     * @param $pWidth
-     * @return string
-     */
-    private function generateThumbnail(string $pImagePath, int $pWidth): string
-    {
-        // config array
-        $config = [
-            'src' => $pImagePath,
-            'mode' => 'fitToWidth',
-            'width' => $pWidth
-        ];
-
-        // return thumbnail array
-        return cockpit('cockpit')->thumbnail($config);
-    }
-
-    /**
      * compute Image as array of objects
      * @param $pImage
      * @return void|array
      */
-    public function computeImage($pImage)
+    public static function computeImage($pImage)
     {
         // get meta asset id
         // allow to request the root asset field with additional information
@@ -76,13 +57,17 @@ class ResponsiveImageModel
         ];
 
         // map each available size
-        foreach ($this::$sizes as $size)
+        foreach (ResponsiveImageModel::$sizes as $size)
         {
             // // check if image exist
             if (!isset($pImage["path"])) return;
 
-            // get d'un objet image en fonction de sa taille
-            $url = $this->generateThumbnail($pImage["path"], $size);
+            // return thumbnail array
+            $url = cockpit('cockpit')->thumbnail([
+                'src' => $pImage["path"],
+                'mode' => 'fitToWidth',
+                'width' => $size
+            ]);
 
             // check if url exist
             if (!isset($url) || $url == "") return;

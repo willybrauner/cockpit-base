@@ -5,10 +5,10 @@
  * @param array $pCategory
  * @return array
  */
-function categoryModel($pCategory) :array
+function categoryModel($pCategory)
 {
     // check
-    if (!isset($pCategory)) return [];
+    if (!isset($pCategory)) return null;
 
     // get ID
     $id = (string)$pCategory['_id'];
@@ -20,8 +20,10 @@ function categoryModel($pCategory) :array
 
     // format respons
     $formatedCategory = [
-        "name" => $categoryField['Name'],
-        "description" => markdownFieldModel($categoryField['Description'])
+        "name" => $categoryField['Name'] ?? null,
+        "description" => $categoryField['Description']
+            ? markdownFieldModel($categoryField['Description'])
+            : null
     ];
 
     // return result

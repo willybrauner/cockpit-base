@@ -2,27 +2,32 @@
 
 /**
  * Prepare block builder
+ * Example of blocks fields format
  * @param array $pBlocks
  * @return array
  */
-function blocksModel (array $pBlocks) :array
+function blocksModel ($pBlocks)
 {
+    // check
+    if (!isset($pBlocks)) return null;
+
     // format block array
     $formatBlocks = [];
 
     // for each blocks
     foreach ($pBlocks as $block)
     {
+        if (!isset($block)) return null;
 
         // Define here bocks informations
         $prepareBlocks = [
             "galleryBlock"=> [
                 "fieldName" => "gallery",
-                "prepare" => galleryFieldModel($block['value'])
+                "prepare" => $block['value'] ? galleryFieldModel($block['value']) : null
             ],
             "markdownBlock"=> [
                 "fieldName" => "markdown",
-                "prepare" => markdownFieldModel($block['value'])
+                "prepare" => $block['value'] ? markdownFieldModel($block['value']) : null
             ],
         ];
 

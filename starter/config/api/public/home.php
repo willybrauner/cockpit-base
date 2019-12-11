@@ -1,8 +1,8 @@
 <?php
 /**
- * Home SingleTons
+ * Home SingleTons curstom API
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
- * @access http://localhost/cockpit-base/trunk/api/public/home
+ * @access /api/public/home
  */
 
 require __DIR__ . '/../../models/models.php';
