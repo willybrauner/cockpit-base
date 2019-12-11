@@ -1,8 +1,14 @@
 # Cockpit base
 
-# Install
+# Installation
 
+Clone repos:
+````shell script
+$ git clone git@github.com:willybrauner/cockpit-base.git
+````
+
+Start install script:
 ```shell script
-curl https://raw.githubusercontent.com/willybrauner/cockpit-base/master/install.sh | sh
+$ ./install.sh
 ```
 
