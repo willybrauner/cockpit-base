@@ -2,11 +2,6 @@
 
 DOCROOT="www"
 
-if [ -d ${DOCROOT} ]; then
-  echo "Cockpit already installed! Remove the www folder first if you want to reinstall."
-  exit 1
-fi
-
 echo "Downloading cockpit-base archive..."
 curl -L -sS https://github.com/willybrauner/cockpit-base/archive/master.zip > cockpit-base-master.zip
 echo "Done !"
@@ -63,5 +58,15 @@ rm cockpit_GROUPS-master.zip
 mv cockpit_GROUPS-master/Groups ${DOCROOT}/addons
 rm -r cockpit_GROUPS-master
 echo "Done."
+echo ""
+
+
+echo "> Move all ${DOCROOT} content on root folder..."
+mv www/* ./
+
+echo "> Remove starter folder..."
+rm -rf starter/
+
+echo "> Cockpit is ready!"
 echo ""
 
