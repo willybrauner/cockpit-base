@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 DOCROOT="www"
 
@@ -7,7 +7,7 @@ if [ -d ${DOCROOT} ]; then
   exit 1
 fi
 
-
+echo "Downloading cockpit-base archive..."
 curl -L -sS https://github.com/willybrauner/cockpit-base/archive/master.zip > cockpit-base-master.zip
 echo "Done !"
 echo ""
@@ -16,7 +16,6 @@ echo "Installing archive..."
 unzip -q cockpit-base-master.zip
 rm cockpit-base-master.zip
 mv cockpit-base-master/* ./
-mv cockpit-base-master/.idea ./.idea
 mv cockpit-base-master/.gitignore ./
 rm -r cockpit-base-master/
 echo "Done !"
