@@ -4,25 +4,49 @@
  * Request "Categories" Collection
  */
 
-require __DIR__ . '/../../models/models.php';
+require __DIR__ . '/../../functions.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
 
-// get specitic collection
-$collection = cockpit('collections')->find('Categories', [
-    'lang'=> $lang
-]);
 
-// prepare categories
-$formatedCollection = [];
-
-// map each item
-foreach ( $collection as $item )
+class Categories
 {
-    // push in array
-    $formatedCollection[] = categoryModel($item);
+    /**
+     * Request endpoint Name
+     * @var string
+     */
+    public static $requestName = "Categories";
+
+    /**
+     * Return API
+     * @param string|null $pLanguage
+     * @return array|null
+     */
+    public static function API(?string $pLanguage): ?array
+    {
+        // get specitic collection
+        $collection = cockpit('collections')->find(self::$requestName, [
+            'lang'=> $pLanguage
+        ]);
+
+        if (!isset($collection)) return null;
+
+        // prepare categories
+        $formatedCollection = [];
+
+        // map each item
+        foreach ( $collection as $item )
+        {
+            // push in array
+            $formatedCollection[] = categoryModel($item);
+        }
+
+        // return collection
+        return $formatedCollection;
+    }
 }
 
-// return collection
-return $formatedCollection;
+return Categories::API($lang);
+
+
