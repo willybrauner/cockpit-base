@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . "/../models/models.php";
+require __DIR__ . "/../functions.php";
 
 /**
  * Prepare Gallery Field

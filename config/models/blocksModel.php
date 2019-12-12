@@ -6,7 +6,7 @@
  * @param array $pBlocks
  * @return array
  */
-function blocksModel ($pBlocks)
+function blocksModel (?array $pBlocks): ?array
 {
     // check
     if (!isset($pBlocks)) return null;

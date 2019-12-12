@@ -5,36 +5,66 @@
  * @access /api/public/home
  */
 
-require __DIR__ . '/../../models/models.php';
+require __DIR__ . '/../../functions.php';
 
 // get current language
 $lang = $this->param('lang');
 
-// get current page
-$page = cockpit('singletons')->getData('Home', [
-    'lang' => $lang
-]);
+class Home
+{
+    /**
+     * Request endpoint Name
+     * @var string
+     */
+    public static $requestEndpointName = "Home";
 
-return [
-   // page title
-    "title" => $page["Title"],
+    /**
+     * Return API
+     * @param string|null $pLanguage
+     * @return array|null
+     */
+    public static function API(?string $pLanguage): ?array
+    {
+        // request
+        $page = RequestHelper::getSingletons(self::$requestEndpointName, $pLanguage);
 
-    // Slug
-    "slug" => SlugModel::format($page['Slug'], $page['Title']),
+        // check
+        if (!isset($page)) return null;
 
-    // desc
-    "description" => markdownFieldModel($page["Description"]),
+        // return final endpoint API
+        return [
+            // page title
+            "title" => $page["Title"],
+            // Slug
+            "slug" => SlugModel::format($page['Slug'], $page['Title']),
+            // desc
+            "description" => markdownFieldModel($page["Description"]),
+            // Main Cover return only 1st element of the gallery
+            "cover" => galleryFieldModel($page["Cover"])[0],
+            // gallery
+            "gallery" => galleryFieldModel($page["Gallery"]),
+            //"_" => $page
+            "categories" => $page["Categories"],
+        ];
+    }
 
-    // Main Cover return only 1st element of the gallery
-    "cover" => galleryFieldModel($page["Cover"])[0],
 
-    // gallery
-    "gallery" => galleryFieldModel($page["Gallery"]),
+    /**
+     * @param string|null $pLanguage
+     * @return array|null
+     */
+    public static function keyBaseAPI(?string $pLanguage): ?array
+    {
+        $request = RequestHelper::getSingletons(self::$requestEndpointName, $pLanguage);
 
-    //"_" => $page
-    "categories" => $page["Categories"],
+        return [
+           APIHelper::baseUrFormat($request, $pLanguage) => self::API($pLanguage),
+        ];
+    }
+
+}
 
 
-];
+return Home::API($lang);
 
 

@@ -2,46 +2,97 @@
 
 /**
  * Request Works Collection and build custom API
+ * @access /api/public/works
  */
 
-require __DIR__ . '/../../models/models.php';
+require __DIR__ . '/../../functions.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');
 
-// get specitic collection
-$collection = cockpit('collections')->find('Works', [
-    'lang'=> $lang
-]);
 
-// prepare categories
-$formatCollection = [];
-
-// map all this collection
-foreach ( $collection as $item )
+class Works
 {
+    /**
+     * Request endpoint Name
+     * @var string
+     */
+    public static $requestEndpointName = "Works";
 
-    $formatCollection[] = [
+    /**
+     * Return API with base url as keyName
+     * @param $pLanguage
+     * @return array|null
+     */
+    public static function keyBaseAPI(?string $pLanguage): ?array
+    {
+        // request collection
+        $collection = RequestHelper::getCollections(self::$requestEndpointName, $pLanguage);
 
-        // Title
-        "title" => $item['Title'],
+        // check
+        if (!isset($collection)) return null;
 
-        // Slug
-        "slug" => SlugModel::format($item['Slug'], $item['Title']),
+        // prepare categories
+        $formatCollection = [];
 
-        // category
-        "category" => categoryModel($item['Categories']),
+        // loop collection
+        for ($i = 0; $i < count($collection); $i++)
+        {
+            // check
+            if (!isset($collection[$i]) || !isset(self::API($pLanguage)[$i])) return null;
 
-        // gallery
-        "gallery" => galleryFieldModel($item['Gallery']),
+            // push result in array
+            $formatCollection[] = [
+                APIHelper::baseUrFormat($collection[$i], $pLanguage) => self::API($pLanguage)[$i]
+            ];
 
-        // description
-        "description" => markdownFieldModel($item['Description']),
+        }
 
-        // Blocks
-        "blocks" => blocksModel($item['Blocks']),
-    ];
+        return $formatCollection;
 
+    }
+
+    /**
+     * Return API
+     * @param string|null $pLanguage
+     * @return array|null
+     */
+    public static function API(?string $pLanguage): ?array
+    {
+        // request collection
+        $collection = RequestHelper::getCollections(self::$requestEndpointName, $pLanguage);
+
+        // check
+        if (!isset($collection)) return null;
+
+        // prepare categories
+        $formatCollection = [];
+
+        // map all this collection
+        foreach ($collection as $item) {
+
+            $formatCollection[] = [
+                // Title
+                "title" => $item['Title'],
+                // Slug
+                "slug" => SlugModel::format($item['Slug'], $item['Title']),
+                // category
+                "category" => categoryModel($item['Categories']),
+                // gallery
+                "gallery" => galleryFieldModel($item['Gallery']),
+                // description
+                "description" => markdownFieldModel($item['Description']),
+                // Blocks
+                "blocks" => blocksModel($item['Blocks']),
+            ];
+
+        }
+
+        return $formatCollection;
+    }
 }
 
-return $formatCollection;
+return Works::API($lang);
+
+
+
