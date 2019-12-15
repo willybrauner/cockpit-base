@@ -6,10 +6,10 @@
  * @param array $pBlocks
  * @return array
  */
-function blocksModel (?array $pBlocks): ?array
+function blocksModel ($pBlocks): ?array
 {
     // check
-    if (!isset($pBlocks)) return null;
+    if (!isset($pBlocks) || !is_array($pBlocks)) return null;
 
     // format block array
     $formatBlocks = [];

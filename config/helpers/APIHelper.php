@@ -16,7 +16,7 @@ class APIHelper
         if (!isset($pRequest)) return null;
 
         // get slug field or slugify title
-        $slug = SlugModel::format($pRequest['Slug'], $pRequest['Title']);
+        $slug = SlugModel::format($pRequest['customSlug'], $pRequest['title']);
 
         // show language in slug
         $languageSlug = isset($pLanguage) ? "/{$pLanguage}" : "";
