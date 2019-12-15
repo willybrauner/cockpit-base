@@ -1,14 +1,11 @@
 <?php
 /**
  * Home SingleTons curstom API
+ * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
- * @access /api/public/home
  */
 
-require __DIR__ . '/../../functions.php';
-
-// get current language
-$lang = $this->param('lang');
+require_once __DIR__ . '/../../functions.php';
 
 class Home
 {
@@ -64,7 +61,10 @@ class Home
 
 }
 
+// get current language
+$lang = $this->param('lang');
 
+// return API
 return Home::API($lang);
 
 

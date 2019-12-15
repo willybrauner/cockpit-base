@@ -2,55 +2,20 @@
 
 /**
  * Request Works Collection and build custom API
- * @access /api/public/works
+ * @access /api/public/Works
  */
 
-require __DIR__ . '/../../functions.php';
-
-// get optionnal param lang
-$lang = $this->param('lang');
+require_once __DIR__ . '/../../functions.php';
 
 
-class Works
+
+class Works extends CollectionsHelper
 {
     /**
      * Request endpoint Name
      * @var string
      */
-    public static $requestEndpointName = "Works";
-
-    /**
-     * Return API with base url as keyName
-     * @param $pLanguage
-     * @return array|null
-     */
-    public static function keyBaseAPI(?string $pLanguage): ?array
-    {
-        // request collection
-        $collection = RequestHelper::getCollections(self::$requestEndpointName, $pLanguage);
-
-        // check
-        if (!isset($collection)) return null;
-
-        // prepare categories
-        $formatCollection = [];
-
-        // loop collection
-        for ($i = 0; $i < count($collection); $i++)
-        {
-            // check
-            if (!isset($collection[$i]) || !isset(self::API($pLanguage)[$i])) return null;
-
-            // push result in array
-            $formatCollection[] = [
-                APIHelper::baseUrFormat($collection[$i], $pLanguage) => self::API($pLanguage)[$i]
-            ];
-
-        }
-
-        return $formatCollection;
-
-    }
+    protected static $requestEndpointName = "Works";
 
     /**
      * Return API
@@ -59,39 +24,38 @@ class Works
      */
     public static function API(?string $pLanguage): ?array
     {
-        // request collection
-        $collection = RequestHelper::getCollections(self::$requestEndpointName, $pLanguage);
 
-        // check
-        if (!isset($collection)) return null;
-
-        // prepare categories
-        $formatCollection = [];
-
-        // map all this collection
-        foreach ($collection as $item) {
-
-            $formatCollection[] = [
+        // function return formated array of the response
+        $formatedResponse = function ($pItem)
+        {
+            return [
                 // Title
-                "title" => $item['Title'],
+                "title" => $pItem['Title'],
                 // Slug
-                "slug" => SlugModel::format($item['Slug'], $item['Title']),
+                "slug" => SlugModel::format($pItem['Slug'], $pItem['Title']),
                 // category
-                "category" => categoryModel($item['Categories']),
+                "category" => categoryModel($pItem['Categories']),
                 // gallery
-                "gallery" => galleryFieldModel($item['Gallery']),
+                "gallery" => galleryFieldModel($pItem['Gallery']),
                 // description
-                "description" => markdownFieldModel($item['Description']),
+                "description" => markdownFieldModel($pItem['Description']),
                 // Blocks
-                "blocks" => blocksModel($item['Blocks']),
+                "blocks" => blocksModel($pItem['Blocks']),
+                // Compose your response here...
             ];
+        };
 
-        }
-
-        return $formatCollection;
+        // return collection
+        return
+            static::formatedCollectionRequest($formatedResponse, $pLanguage)
+            ?? null;
     }
 }
 
+// get optionnal param lang
+$lang = $this->param('lang');
+
+// return API
 return Works::API($lang);
 
 

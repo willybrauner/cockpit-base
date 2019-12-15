@@ -3,16 +3,18 @@
 require_once __DIR__ . '/../../functions.php';
 require_once __DIR__ . '/../../helpers/CollectionsHelper.php';
 
+
 /**
- * Request "Categories" Collection
+ * class Articles
+ * Request Articles Collection and build custom API
  */
-class Categories extends CollectionsHelper
+class Articles extends CollectionsHelper
 {
     /**
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Categories";
+    protected static $requestEndpointName = "Articles";
 
     /**
      * Return API
@@ -24,21 +26,26 @@ class Categories extends CollectionsHelper
         // function return formated array of the response
         $formatedResponse = function ($pItem)
         {
-            return categoryModel($pItem);
+            return [
+                "title" => $pItem['Title']
+                // Compose your response here...
+            ];
         };
 
         // return collection
         return
             static::formatedCollectionRequest($formatedResponse, $pLanguage)
             ?? null;
+
     }
 }
 
 
-// get optionnal param lang
+// get param lang
 $lang = $this->param('lang');
 
-// return api
-return Categories::API($lang);
+// return final API
+return Articles::API($lang);
+
 
 

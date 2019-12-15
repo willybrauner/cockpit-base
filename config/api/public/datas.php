@@ -4,18 +4,16 @@
  * Return all data page
  */
 
-require __DIR__ . '/../../functions.php';
-require __DIR__ . '/home.php';
-require __DIR__ . '/works.php';
-require __DIR__ . '/categories.php';
+require_once __DIR__ . '/../../functions.php';
+require_once __DIR__ . '/Home.php';
+require_once __DIR__ . '/Categories.php';
 
-// get current language
-$lang = $this->param('lang');
+require_once __DIR__ . '/Works.php';
+require_once __DIR__ . '/Articles.php';
 
 
 class Data
 {
-
     /**
      * @param $pLanguage
      * @return array
@@ -23,7 +21,7 @@ class Data
     public static function API(?string $pLanguage): array
     {
         return [
-            "pages" => self::pagesBuilder($pLanguage),
+            "pages" => static::pagesBuilder($pLanguage),
             "global" => [
                 "categories" => Categories::API($pLanguage),
                 "config" => [
@@ -36,7 +34,6 @@ class Data
                 "copyright" => "",
             ],
         ];
-
     }
 
     /**
@@ -50,12 +47,18 @@ class Data
         $pages = array_merge(
             Home::keyBaseAPI($pLanguage),
             // merge each collections in array
-            ...Works::keyBaseAPI($pLanguage)
+            ...Works::keyBaseAPI($pLanguage),
+            //
+            ...Articles::keyBaseAPI($pLanguage)
         );
 
         return $pages;
     }
 }
+
+
+// get current language
+$lang = $this->param('lang');
 
 // return final build datas API
 return Data::API($lang);
