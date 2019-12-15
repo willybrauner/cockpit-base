@@ -13,7 +13,7 @@ class Works extends CollectionsHelper
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Works";
+    const ENDPOINT_NAME = "Works";
 
     /**
      * Return API

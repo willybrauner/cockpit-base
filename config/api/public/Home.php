@@ -14,7 +14,7 @@ class Home extends SingletonsHelper
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Home";
+    const ENDPOINT_NAME = "Home";
 
     /**
      * Return API
@@ -24,7 +24,7 @@ class Home extends SingletonsHelper
     public static function API(?string $pLanguage): ?array
     {
         // request
-        $page = RequestHelper::getSingletons(self::$requestEndpointName, $pLanguage);
+        $page = RequestHelper::getSingletons(self::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($page)) return null;

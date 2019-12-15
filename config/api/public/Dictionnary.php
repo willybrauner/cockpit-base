@@ -12,7 +12,7 @@ class Dictionnary
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Dictionnary";
+    const ENDPOINT_NAME = "Dictionnary";
 
     /**
      * Return API
@@ -22,7 +22,7 @@ class Dictionnary
     public static function API(?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(self::$requestEndpointName, $pLanguage);
+        $collection = RequestHelper::getCollections(self::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;

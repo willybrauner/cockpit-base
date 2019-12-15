@@ -10,7 +10,7 @@ class SingletonsHelper
      */
     public static function keyBaseAPI(?string $pLanguage): ?array
     {
-        $request = RequestHelper::getSingletons(static::$requestEndpointName, $pLanguage);
+        $request = RequestHelper::getSingletons(static::ENDPOINT_NAME, $pLanguage);
 
         return [
             APIHelper::baseUrFormat($request, $pLanguage) => static::API($pLanguage),
