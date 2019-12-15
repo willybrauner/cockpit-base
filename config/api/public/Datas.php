@@ -3,54 +3,49 @@
 require_once __DIR__ . '/../../functions.php';
 require_once __DIR__ . '/Home.php';
 require_once __DIR__ . '/Works.php';
-require_once __DIR__ . '/Articles.php';
+require_once __DIR__ . '/Dictionnary.php';
 require_once __DIR__ . '/Categories.php';
+require_once __DIR__ . '/Site.php';
 
 /**
  * Datas curstom API
  * Return all data page
  */
-class Data
+class Datas
 {
     /**
+     * Return final Data Api
      * @param $pLanguage
      * @return array
      */
     public static function API(?string $pLanguage): array
     {
-        return [
-            "pages" => static::pagesBuilder($pLanguage),
-            "global" => [
-                "categories" => Categories::API($pLanguage),
-                "config" => [
-                    "analytics" => "",
-                    "languages" => "",
-                ],
-                "dictionary" => "",
-                "menus" => "",
-                "meta" => "",
-                "copyright" => "",
-            ],
-        ];
-    }
 
-    /**
-     * Build pages array
-     * @param string|null $pLanguage
-     * @return array|null
-     */
-    private static function pagesBuilder(?string $pLanguage): ?array
-    {
-        // merges each pages in the same array
-        $pages = array_merge(
+        // defines pages
+        $pages =  array_merge(
             Home::keyBaseAPI($pLanguage),
             // merge each collections in array
-            ...Works::keyBaseAPI($pLanguage),
-            //
-            ...Articles::keyBaseAPI($pLanguage)
+            ...Works::keyBaseAPI($pLanguage)
         );
 
-        return $pages;
+        // defines globals
+        $global = [
+            "site" => [
+                "main" => Site::API($pLanguage)['main'] ?? null,
+                "metas" => Site::API($pLanguage)['metas'] ?? null,
+                "contact" => Site::API($pLanguage)['contact'] ?? null
+            ],
+            "menus" => null,
+            "languages" => null,
+            "categories" => Categories::API($pLanguage) ?? null,
+            "dictionary" => Dictionnary::API($pLanguage) ?? null,
+        ];
+
+        // final API return
+        return [
+            "pages" => $pages,
+            "global" => $global
+        ];
     }
 }
 
@@ -59,7 +54,7 @@ class Data
 $lang = $this->param('lang');
 
 // return final build datas API
-return Data::API($lang);
+return Datas::API($lang);
 
 
 

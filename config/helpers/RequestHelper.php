@@ -14,11 +14,16 @@ class RequestHelper
      */
     public static function getSingletons(?string $pRequestName, ?string $pLanguage): ?array
     {
-        if (!$pRequestName) return null;
+        // check
+        if (!isset($pRequestName)) return null;
 
-        return cockpit('singletons')->getData($pRequestName, [
+        // request
+        $request = cockpit('singletons')->getData($pRequestName, [
             'lang' => $pLanguage
         ]);
+
+        // return if exist
+        return (!isset($request) || !$request) ? null : $request;
     }
 
     /**
@@ -29,11 +34,16 @@ class RequestHelper
      */
     public static function getCollections(?string $pRequestName, ?string $pLanguage): ?array
     {
-        if (!$pRequestName) return null;
+        // check
+        if (!isset($pRequestName)) return null;
 
-        return cockpit('collections')->find($pRequestName, [
+        // request
+        $request = cockpit('collections')->find($pRequestName, [
             'lang' => $pLanguage
         ]);
+
+        // return if exist
+        return (!isset($request) || !$request) ? null : $request;
     }
 
     /**
@@ -42,7 +52,11 @@ class RequestHelper
      */
     public static function getAllAssets(): ?array
     {
-        return cockpit()->storage->find("cockpit/assets");
+        // request
+        $request = cockpit()->storage->find("cockpit/assets");
+
+        // return if exist
+        return (!isset($request) || !$request) ? null : $request;
     }
 
     /**
@@ -52,9 +66,11 @@ class RequestHelper
      */
     public static function getSingleAssetById(?int $pId): ?array
     {
-        return cockpit()->storage->findOne("cockpit/assets", [
+        $request = cockpit()->storage->findOne("cockpit/assets", [
             "_id" => $pId
         ]);
+
+        return (!isset($request) || !$request) ? null : $request;
     }
 
 }

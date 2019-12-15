@@ -9,10 +9,10 @@ require __DIR__ . "/../functions.php";
  * @return array
  */
 
-function galleryFieldModel ($pGallery)
+function galleryFieldModel ($pGallery): ?array
 {
     // if param is not empty
-    if(!isset($pGallery)) return null;
+    if(!isset($pGallery) || count($pGallery) === 0 || !is_array($pGallery)) return null;
 
     // create format gallery array
     $formatGallery = [];

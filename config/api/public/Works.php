@@ -24,21 +24,25 @@ class Works extends CollectionsHelper
     {
 
         // function return formated array of the response
-        $formatedResponse = function ($pItem)
-        {
+        $formatedResponse = function ($pItem) {
             return [
-                // Title
-                "title" => $pItem['Title'],
-                // Slug
-                "slug" => SlugModel::format($pItem['Slug'], $pItem['Title']),
-                // category
-                "category" => categoryModel($pItem['Categories']),
-                // gallery
-                "gallery" => galleryFieldModel($pItem['Gallery']),
-                // description
-                "description" => markdownFieldModel($pItem['Description']),
-                // Blocks
-                "blocks" => blocksModel($pItem['Blocks']),
+                "datas" => [
+                    // Title
+                    "title" => $pItem['title'],
+                    // Slug
+                    "slug" => SlugModel::format($pItem['customSlug'], $pItem['title']),
+                    // category
+                    "category" => categoryModel($pItem['categories']),
+                    // gallery
+                    "gallery" => galleryFieldModel($pItem['gallery']),
+                    // description
+                    "description" => markdownFieldModel($pItem['description']),
+                    // Blocks
+                    "blocks" => blocksModel($pItem['blocks']),
+                ],
+
+                // metas
+                "metas" => metasModel($pItem)
                 // Compose your response here...
             ];
         };

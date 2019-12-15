@@ -10,6 +10,7 @@ require_once __DIR__ . '/models/markdownFieldModel.php';
 
 // models customs
 require_once __DIR__ . '/models/blocksModel.php';
+require_once __DIR__ . '/models/metasModel.php';
 require_once __DIR__ . '/models/SlugModel.php';
 require_once __DIR__ . '/models/ResponsiveImageModel.php';
 require_once __DIR__ . '/models/categoryModel.php';

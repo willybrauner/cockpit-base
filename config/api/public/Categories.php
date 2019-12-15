@@ -28,9 +28,7 @@ class Categories extends CollectionsHelper
         };
 
         // return collection
-        return
-            static::formatedCollectionRequest($formatedResponse, $pLanguage)
-            ?? null;
+        return static::formatedCollectionRequest($formatedResponse, $pLanguage) ?? null;
     }
 }
 
