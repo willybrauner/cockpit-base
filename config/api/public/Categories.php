@@ -12,7 +12,7 @@ class Categories extends CollectionsHelper
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Categories";
+    const ENDPOINT_NAME = "Categories";
 
     /**
      * Return API

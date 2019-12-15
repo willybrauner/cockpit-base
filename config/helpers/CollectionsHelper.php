@@ -15,7 +15,7 @@ class CollectionsHelper
     protected static function formatedCollectionRequest($pFormatedResponse, ?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(static::$requestEndpointName, $pLanguage);
+        $collection = RequestHelper::getCollections(static::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;
@@ -41,7 +41,7 @@ class CollectionsHelper
     public static function keyBaseAPI(?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(static::$requestEndpointName, $pLanguage);
+        $collection = RequestHelper::getCollections(static::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;
