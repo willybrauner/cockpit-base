@@ -3,7 +3,6 @@
 require_once __DIR__ . '/../../functions.php';
 require_once __DIR__ . '/../../helpers/CollectionsHelper.php';
 
-
 /**
  * class Articles
  * Request Articles Collection and build custom API

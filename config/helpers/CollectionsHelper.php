@@ -6,7 +6,6 @@
  */
 class CollectionsHelper
 {
-
     /**
      * Prepare collection request & return the formated collection
      * @param $pFormatedResponse

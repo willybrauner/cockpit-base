@@ -1,14 +1,12 @@
 <?php
 
+require_once __DIR__ . '/../../functions.php';
+require_once __DIR__ . '/../../helpers/CollectionsHelper.php';
+
 /**
  * Request Works Collection and build custom API
  * @access /api/public/Works
  */
-
-require_once __DIR__ . '/../../functions.php';
-
-
-
 class Works extends CollectionsHelper
 {
     /**

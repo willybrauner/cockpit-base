@@ -1,12 +1,12 @@
 <?php
+
+require_once __DIR__ . '/../../functions.php';
+
 /**
  * Home SingleTons curstom API
  * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  */
-
-require_once __DIR__ . '/../../functions.php';
-
 class Home
 {
     /**

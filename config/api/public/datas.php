@@ -1,17 +1,15 @@
 <?php
+
+require_once __DIR__ . '/../../functions.php';
+require_once __DIR__ . '/Home.php';
+require_once __DIR__ . '/Works.php';
+require_once __DIR__ . '/Articles.php';
+require_once __DIR__ . '/Categories.php';
+
 /**
  * Datas curstom API
  * Return all data page
  */
-
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/Home.php';
-require_once __DIR__ . '/Categories.php';
-
-require_once __DIR__ . '/Works.php';
-require_once __DIR__ . '/Articles.php';
-
-
 class Data
 {
     /**
