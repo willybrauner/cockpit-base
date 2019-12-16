@@ -1,37 +1,8 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/../../helpers/CollectionsHelper.php';
+use Api\Endpoints\Categories;
 
-/**
- * Request "Categories" Collection
- */
-class Categories extends CollectionsHelper
-{
-    /**
-     * Request endpoint Name
-     * @var string
-     */
-    const ENDPOINT_NAME = "Categories";
-
-    /**
-     * Return API
-     * @param string|null $pLanguage
-     * @return array|null
-     */
-    public static function API(?string $pLanguage): ?array
-    {
-        // function return formated array of the response
-        $formatedResponse = function ($pItem)
-        {
-            return categoryModel($pItem);
-        };
-
-        // return collection
-        return static::formatedCollectionRequest($formatedResponse, $pLanguage) ?? null;
-    }
-}
-
+require __DIR__ . '/../../vendor/autoload.php';
 
 // get optionnal param lang
 $lang = $this->param('lang');

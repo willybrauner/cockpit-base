@@ -1,10 +1,11 @@
 <?php
 
+namespace Api\Helpers;
 
 /**
- * @name RequestHelper
+ * @name Requests
  */
-class RequestHelper
+class Requests
 {
     /**
      * Get singletons

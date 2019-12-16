@@ -1,5 +1,7 @@
 <?php
 
+namespace Api\Models;
+
 /**
  * @name ResponsiveImageModel
  * @description Allow to return an array of images objects
