@@ -5,15 +5,13 @@ namespace Api\Models;
 use Parsedown;
 
 /**
- * Prepare Markown Field
- * Parse with Parsdown
- * @doc: https://parsedown.org/
- * @param $pMarkdownData
- * @return string
+ * class MarkdownField
  */
 class MarkdownField
 {
     /**
+     * Parse Markown Field with Parsdown
+     * @doc: https://parsedown.org
      * @param $pData
      * @return string|null
      */
