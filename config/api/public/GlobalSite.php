@@ -2,7 +2,7 @@
 
 use Api\Helpers\Requests;
 use Api\Helpers\Singletons;
-use Api\Models\MarkdownField;
+use Api\Models\MarkdownModel;
 use Api\Models\MetasModel;
 
 require __DIR__ . '/../../vendor/autoload.php';
@@ -12,13 +12,13 @@ require __DIR__ . '/../../vendor/autoload.php';
  * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  */
-class Site extends Singletons
+class GlobalSite extends Singletons
 {
     /**
      * Request endpoint Name
      * @var string
      */
-    const ENDPOINT_NAME = "Site";
+    const ENDPOINT_NAME = "GlobalSite";
 
     /**
      * Return API
@@ -38,7 +38,7 @@ class Site extends Singletons
 
             "main" => [
                 "siteName" => $page["siteName"],
-                "copyright" => MarkdownField::format($page["copyright"]),
+                "copyright" => MarkdownModel::format($page["copyright"]),
                 "analytics" => $page["analytics"],
             ],
             "metas" => MetasModel::format($page),
@@ -59,6 +59,6 @@ class Site extends Singletons
 $lang = $this->param('lang');
 
 // return API
-return Site::API($lang);
+return GlobalSite::API($lang);
 
 

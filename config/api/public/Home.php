@@ -1,7 +1,7 @@
 <?php
 
-use Api\Models\GalleryField;
-use Api\Models\MarkdownField;
+use Api\Models\GalleryModel;
+use Api\Models\MarkdownModel;
 use Api\Models\MetasModel;
 use Api\Models\SlugModel;
 use Api\Helpers\Singletons;
@@ -43,13 +43,16 @@ class Home extends Singletons
                 // slug
                 "slug" => SlugModel::format($page['customSlug'], $page['title']),
                 // desc
-                "description" => MarkdownField::format($page["description"]),
+                "description" => MarkdownModel::format($page["description"]),
                 // Main Cover return only 1st element of the gallery
-                "cover" => GalleryField::format($page["cover"])[0],
+                "cover" => GalleryModel::format($page["cover"])[0],
                 // gallery
-                "gallery" => GalleryField::format($page["gallery"])
+                "gallery" => GalleryModel::format($page["gallery"])
             ],
-            "metas" => MetasModel::format($page)
+            "metas" => MetasModel::format($page),
+            "config" => [
+                "componentName" => $page["componentName"] ?? "HomePage"
+            ]
         ];
     }
 }

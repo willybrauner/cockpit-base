@@ -7,7 +7,7 @@ use Parsedown;
 /**
  * class MarkdownField
  */
-class MarkdownField
+class MarkdownModel
 {
     /**
      * Parse Markown Field with Parsdown

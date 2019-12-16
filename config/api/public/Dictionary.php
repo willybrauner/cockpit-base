@@ -8,14 +8,14 @@ require __DIR__ . '/../../vendor/autoload.php';
  * class Articles
  * Request Articles Collection and build custom API
  */
+
 class Dictionary
 {
     /**
      * Request endpoint Name
      * @var string
      */
-    // TODO refacto en back to Dictionary
-    const ENDPOINT_NAME = "Dictionnary";
+    const ENDPOINT_NAME = "Dictionary";
 
     /**
      * Return API

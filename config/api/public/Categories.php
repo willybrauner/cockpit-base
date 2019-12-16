@@ -1,7 +1,7 @@
 <?php
 
 use Api\Helpers\Collections;
-use Api\Models\CategoryField;
+use Api\Models\CategoryModel;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
@@ -27,7 +27,7 @@ class Categories extends Collections
         // function return formated array of the response
         $formatedResponse = function ($pItem)
         {
-            return CategoryField::format($pItem);
+            return CategoryModel::format($pItem);
         };
 
         // return collection

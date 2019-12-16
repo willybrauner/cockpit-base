@@ -2,7 +2,7 @@
 
 // can't use namespace and use, because of the preserved keyword "public"
 require_once __DIR__ . DIRECTORY_SEPARATOR . "Home.php";
-require_once __DIR__ . DIRECTORY_SEPARATOR . "Site.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "GlobalSite.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "Works.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "Categories.php";
 require_once __DIR__ . DIRECTORY_SEPARATOR . "Dictionary.php";
@@ -32,9 +32,9 @@ class Datas
         // defines globals
         $global = [
             "site" => [
-                "main" => Site::API($pLanguage)['main'] ?? null,
-                "metas" => Site::API($pLanguage)['metas'] ?? null,
-                "contact" => Site::API($pLanguage)['contact'] ?? null
+                "main" => GlobalSite::API($pLanguage)['main'] ?? null,
+                "metas" => GlobalSite::API($pLanguage)['metas'] ?? null,
+                "contact" => GlobalSite::API($pLanguage)['contact'] ?? null
             ],
             "menus" => null,
             "languages" => null,

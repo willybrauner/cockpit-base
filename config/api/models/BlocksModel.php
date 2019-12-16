@@ -3,9 +3,9 @@
 namespace Api\Models;
 
 /**
- * Class blocksField
+ * Class blocksModel
  */
-class BlocksField
+class BlocksModel
 {
     /**
      * Prepare block builder
@@ -29,11 +29,11 @@ class BlocksField
             $prepareBlocks = [
                 "galleryBlock" => [
                     "fieldName" => "gallery",
-                    "prepare" => $block['value'] ? GalleryField::format($block['value']) : null
+                    "prepare" => $block['value'] ? GalleryModel::format($block['value']) : null
                 ],
                 "markdownBlock" => [
                     "fieldName" => "markdown",
-                    "prepare" => $block['value'] ? MarkdownField::format($block['value']) : null
+                    "prepare" => $block['value'] ? MarkdownModel::format($block['value']) : null
                 ],
             ];
 

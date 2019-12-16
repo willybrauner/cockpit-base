@@ -1,10 +1,10 @@
 <?php
 
 use Api\Helpers\Collections;
-use Api\Models\BlocksField;
-use Api\Models\CategoryField;
-use Api\Models\GalleryField;
-use Api\Models\MarkdownField;
+use Api\Models\BlocksModel;
+use Api\Models\CategoryModel;
+use Api\Models\GalleryModel;
+use Api\Models\MarkdownModel;
 use Api\Models\MetasModel;
 use Api\Models\SlugModel;
 
@@ -39,18 +39,22 @@ class Works extends Collections
                     // Slug
                     "slug" => SlugModel::format($pItem['customSlug'], $pItem['title']),
                     // category
-                    "category" => CategoryField::format($pItem['categories']),
+                    "category" => CategoryModel::format($pItem['categories']),
                     // gallery
-                    "gallery" => GalleryField::format($pItem['gallery']),
+                    "gallery" => GalleryModel::format($pItem['gallery']),
                     // description
-                    "description" => MarkdownField::format($pItem['description']),
+                    "description" => MarkdownModel::format($pItem['description']),
                     // Blocks
-                    "blocks" => BlocksField::format($pItem['blocks']),
+                    "blocks" => BlocksModel::format($pItem['blocks']),
                 ),
 
                 // metas
-                "metas" => MetasModel::format($pItem)
+                "metas" => MetasModel::format($pItem),
                 // Compose your response here...
+                "config" => [
+                    "componentName" => $pItem["componentName"] ?? "WorkPage",
+                    "publish" => $pItem["publish"]
+                ]
             ];
         };
 

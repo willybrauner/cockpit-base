@@ -7,7 +7,7 @@ namespace Api\Models;
  * @param array $pCategory
  * @return array
  */
-class CategoryField
+class CategoryModel
 {
     public static function format($pCategory): ?array
     {
@@ -26,7 +26,7 @@ class CategoryField
         $formatedCategory = [
             "name" => $categoryField['Name'] ?? null,
             "description" => $categoryField['Description']
-                ? MarkdownField::format($categoryField['Description'])
+                ? MarkdownModel::format($categoryField['Description'])
                 : null
         ];
 
