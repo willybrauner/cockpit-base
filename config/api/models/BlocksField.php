@@ -29,11 +29,11 @@ class BlocksField
             $prepareBlocks = [
                 "galleryBlock" => [
                     "fieldName" => "gallery",
-                    "prepare" => $block['value'] ? GalleryFieldModel::format($block['value']) : null
+                    "prepare" => $block['value'] ? GalleryField::format($block['value']) : null
                 ],
                 "markdownBlock" => [
                     "fieldName" => "markdown",
-                    "prepare" => $block['value'] ? MarkdownFieldModel::format($block['value']) : null
+                    "prepare" => $block['value'] ? MarkdownField::format($block['value']) : null
                 ],
             ];
 

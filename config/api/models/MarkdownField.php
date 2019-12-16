@@ -11,7 +11,7 @@ use Parsedown;
  * @param $pMarkdownData
  * @return string
  */
-class MarkdownFieldModel
+class MarkdownField
 {
     /**
      * @param $pData

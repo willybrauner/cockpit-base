@@ -26,7 +26,7 @@ class CategoryField
         $formatedCategory = [
             "name" => $categoryField['Name'] ?? null,
             "description" => $categoryField['Description']
-                ? MarkdownFieldModel::format($categoryField['Description'])
+                ? MarkdownField::format($categoryField['Description'])
                 : null
         ];
 

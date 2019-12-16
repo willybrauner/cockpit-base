@@ -8,7 +8,7 @@ namespace Api\Models;
  * @param $pGallery
  * @return array
  */
-class GalleryFieldModel
+class GalleryField
 {
     public static function format($pGallery): ?array
     {
