@@ -1,20 +1,24 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/../../helpers/SingletonsHelper.php';
+use Api\Helpers\Requests;
+use Api\Helpers\Singletons;
+use Api\Models\MarkdownField;
+use Api\Models\MetasModel;
+
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Site SingleTons curstom API
  * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  */
-class Site extends SingletonsHelper
+class Site extends Singletons
 {
     /**
      * Request endpoint Name
      * @var string
      */
-    protected static $requestEndpointName = "Site";
+    const ENDPOINT_NAME = "Site";
 
     /**
      * Return API
@@ -24,7 +28,7 @@ class Site extends SingletonsHelper
     public static function API(?string $pLanguage): ?array
     {
         // request
-        $page = RequestHelper::getSingletons(self::$requestEndpointName, $pLanguage);
+        $page = Requests::getSingletons(self::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($page)) return null;
@@ -34,22 +38,21 @@ class Site extends SingletonsHelper
 
             "main" => [
                 "siteName" => $page["siteName"],
-                "copyright" => markdownFieldModel($page["copyright"]),
-                "analytics" => markdownFieldModel($page["analytics"]),
+                "copyright" => MarkdownField::format($page["copyright"]),
+                "analytics" => $page["analytics"],
             ],
-            "metas" => metasModel($page),
+            "metas" => MetasModel::format($page),
             "contact" => [
                 "address" => [
                     "street" => $page["street"],
                     "cp" => $page["cp"],
                     "city" => $page["city"],
-                 ],
+                ],
                 "phone" => $page["phone"],
                 "mail" => $page["mail"],
             ]
         ];
     }
-
 }
 
 // get current language

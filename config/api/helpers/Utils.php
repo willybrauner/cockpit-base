@@ -1,6 +1,10 @@
 <?php
 
-class APIHelper
+namespace Api\Helpers;
+
+use Api\Models\SlugModel;
+
+class Utils
 {
     /**
      * return a format string url

@@ -1,10 +1,15 @@
-
 <?php
+
+namespace Api\Helpers;
+
+use Api\Helpers\Requests;
+use Api\Helpers\Utils;
+
 
 /**
  * Class CollectionsHelper
  */
-class CollectionsHelper
+class Collections
 {
     /**
      * Prepare collection request & return the formated collection
@@ -15,7 +20,7 @@ class CollectionsHelper
     protected static function formatedCollectionRequest($pFormatedResponse, ?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(static::ENDPOINT_NAME, $pLanguage);
+        $collection = Requests::getCollections(static::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;
@@ -41,7 +46,7 @@ class CollectionsHelper
     public static function keyBaseAPI(?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(static::ENDPOINT_NAME, $pLanguage);
+        $collection = Requests::getCollections(static::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;
@@ -57,7 +62,7 @@ class CollectionsHelper
 
             // push result in array
             $formatCollection[] = [
-                APIHelper::baseUrFormat($collection[$i], $pLanguage) => static::API($pLanguage)[$i]
+                Utils::baseUrFormat($collection[$i], $pLanguage) => static::API($pLanguage)[$i]
             ];
 
         }

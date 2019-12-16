@@ -1,11 +1,12 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/Home.php';
-require_once __DIR__ . '/Works.php';
-require_once __DIR__ . '/Dictionnary.php';
-require_once __DIR__ . '/Categories.php';
-require_once __DIR__ . '/Site.php';
+// can't use namespace and use, because of the preserved keyword "public"
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Home.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Site.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Works.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Categories.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "Dictionary.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . '../../vendor/autoload.php';
 
 /**
  * Datas curstom API
@@ -22,7 +23,7 @@ class Datas
     {
 
         // defines pages
-        $pages =  array_merge(
+        $pages = array_merge(
             Home::keyBaseAPI($pLanguage),
             // merge each collections in array
             ...Works::keyBaseAPI($pLanguage)
@@ -38,7 +39,7 @@ class Datas
             "menus" => null,
             "languages" => null,
             "categories" => Categories::API($pLanguage) ?? null,
-            "dictionary" => Dictionnary::API($pLanguage) ?? null,
+            "dictionary" => Dictionary::API($pLanguage) ?? null,
         ];
 
         // final API return
@@ -48,7 +49,6 @@ class Datas
         ];
     }
 }
-
 
 // get current language
 $lang = $this->param('lang');

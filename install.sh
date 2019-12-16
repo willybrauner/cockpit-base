@@ -65,6 +65,13 @@ rm -rf ${SUBFOLDER}
 echo "Done."
 echo ""
 
+echo "> Install Api dependencies..."
+cd config/
+composer install
+cd ..
+echo "Done."
+echo ""
+
 echo "> Cockpit-base is ready!"
 echo ""
 

@@ -1,6 +1,12 @@
 <?php
 
-class SingletonsHelper
+namespace Api\Helpers;
+
+/**
+ * Class SingletonsHelper
+ * @package Api\Helpers
+ */
+class Singletons
 {
     /**
      * Return API with base url as keyName
@@ -10,10 +16,10 @@ class SingletonsHelper
      */
     public static function keyBaseAPI(?string $pLanguage): ?array
     {
-        $request = RequestHelper::getSingletons(static::ENDPOINT_NAME, $pLanguage);
+        $request = Requests::getSingletons(static::ENDPOINT_NAME, $pLanguage);
 
         return [
-            APIHelper::baseUrFormat($request, $pLanguage) => static::API($pLanguage),
+            Utils::baseUrFormat($request, $pLanguage) => static::API($pLanguage),
         ];
     }
 }

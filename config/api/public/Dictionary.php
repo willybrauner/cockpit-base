@@ -1,17 +1,20 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
+use Api\Helpers\Requests;
+
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * class Articles
  * Request Articles Collection and build custom API
  */
-class Dictionnary
+class Dictionary
 {
     /**
      * Request endpoint Name
      * @var string
      */
+    // TODO refacto en back to Dictionary
     const ENDPOINT_NAME = "Dictionnary";
 
     /**
@@ -22,7 +25,7 @@ class Dictionnary
     public static function API(?string $pLanguage): ?array
     {
         // request collection
-        $collection = RequestHelper::getCollections(self::ENDPOINT_NAME, $pLanguage);
+        $collection = Requests::getCollections(self::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($collection)) return null;
@@ -48,12 +51,11 @@ class Dictionnary
     }
 }
 
-
 // get param lang
 $lang = $this->param('lang');
 
 // return final API
-return Dictionnary::API($lang);
+return Dictionary::API($lang);
 
 
 

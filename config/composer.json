@@ -1,0 +1,17 @@
+{
+    "name": "willybrauner/config",
+    "authors": [
+        {
+            "name": "Willy",
+            "email": "mail@willybrauner.com"
+        }
+    ],
+    "require": {
+        "erusev/parsedown": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Api\\": "api/"
+        }
+    }
+}

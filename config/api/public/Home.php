@@ -1,14 +1,20 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/../../helpers/SingletonsHelper.php';
+use Api\Models\GalleryField;
+use Api\Models\MarkdownField;
+use Api\Models\MetasModel;
+use Api\Models\SlugModel;
+use Api\Helpers\Singletons;
+use Api\Helpers\Requests;
+
+require __DIR__ . '/../../vendor/autoload.php';
 
 /**
  * Home SingleTons curstom API
  * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  */
-class Home extends SingletonsHelper
+class Home extends Singletons
 {
     /**
      * Request endpoint Name
@@ -24,29 +30,28 @@ class Home extends SingletonsHelper
     public static function API(?string $pLanguage): ?array
     {
         // request
-        $page = RequestHelper::getSingletons(self::ENDPOINT_NAME, $pLanguage);
+        $page = Requests::getSingletons(self::ENDPOINT_NAME, $pLanguage);
 
         // check
         if (!isset($page)) return null;
 
-        // return final endpoint API
+        // return page endpoint API
         return [
             "datas" => [
                 // page title
                 "title" => $page["title"],
-                // Slug
+                // slug
                 "slug" => SlugModel::format($page['customSlug'], $page['title']),
                 // desc
-                "description" => markdownFieldModel($page["description"]) ?? null,
+                "description" => MarkdownField::format($page["description"]),
                 // Main Cover return only 1st element of the gallery
-                "cover" => galleryFieldModel($page["cover"])[0],
+                "cover" => GalleryField::format($page["cover"])[0],
                 // gallery
-                "gallery" => galleryFieldModel($page["gallery"]),
+                "gallery" => GalleryField::format($page["gallery"])
             ],
-            "metas" => metasModel($page)
+            "metas" => MetasModel::format($page)
         ];
     }
-
 }
 
 // get current language

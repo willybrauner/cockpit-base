@@ -1,12 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../../functions.php';
-require_once __DIR__ . '/../../helpers/CollectionsHelper.php';
+use Api\Helpers\Collections;
+use Api\Models\CategoryField;
+
+require __DIR__ . '/../../vendor/autoload.php';
+
 
 /**
  * Request "Categories" Collection
  */
-class Categories extends CollectionsHelper
+class Categories extends Collections
 {
     /**
      * Request endpoint Name
@@ -24,14 +27,13 @@ class Categories extends CollectionsHelper
         // function return formated array of the response
         $formatedResponse = function ($pItem)
         {
-            return categoryModel($pItem);
+            return CategoryField::format($pItem);
         };
 
         // return collection
         return static::formatedCollectionRequest($formatedResponse, $pLanguage) ?? null;
     }
 }
-
 
 // get optionnal param lang
 $lang = $this->param('lang');
