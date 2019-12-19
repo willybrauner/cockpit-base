@@ -14,7 +14,7 @@ class Utils
      * @param string|null $pLanguage
      * @return string
      */
-    public static function baseUrFormat(?array $pRequest, ?string $pLanguage): string
+    public static function baseUrFormat(?array $pRequest, ?string $pLanguage): ?string
     {
         // check
         if (!isset($pRequest)) return null;
