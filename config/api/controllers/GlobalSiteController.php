@@ -1,7 +1,8 @@
 <?php
 
-use Api\Helpers\Requests;
-use Api\Helpers\Singletons;
+namespace Api\Controllers;
+
+use Api\Helpers\RequestsHelper;
 use Api\Models\MarkdownModel;
 use Api\Models\MetasModel;
 
@@ -12,7 +13,7 @@ require __DIR__ . '/../../vendor/autoload.php';
  * @access /api/public/Home
  * @infos https://discourse.getcockpit.com/t/how-to-create-custom-api-endpoints/202/4
  */
-class GlobalSite extends Singletons
+class GlobalSiteController
 {
     /**
      * Request endpoint Name
@@ -22,13 +23,12 @@ class GlobalSite extends Singletons
 
     /**
      * Return API
-     * @param string|null $pLanguage
      * @return array|null
      */
-    public static function API(?string $pLanguage): ?array
+    public static function API(): ?array
     {
         // request
-        $page = Requests::getSingletons(self::ENDPOINT_NAME, $pLanguage);
+        $page = RequestsHelper::getSingletons(self::ENDPOINT_NAME);
 
         // check
         if (!isset($page)) return null;
@@ -54,11 +54,4 @@ class GlobalSite extends Singletons
         ];
     }
 }
-
-// get current language
-$lang = $this->param('lang');
-
-// return API
-return GlobalSite::API($lang);
-
 

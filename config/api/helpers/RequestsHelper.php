@@ -3,24 +3,33 @@
 namespace Api\Helpers;
 
 /**
- * @name Requests
+ * @name RequestsHelper
  */
-class Requests
+class RequestsHelper
 {
+
+    /**
+     * Get current language
+     * @return string
+     */
+    public static function getCurrentLanguage(): ?string
+    {
+        return cockpit()->param('lang') ?? null;
+    }
+
     /**
      * Get singletons
      * @param string|null $pRequestName
-     * @param string|null $pLanguage
      * @return array|null
      */
-    public static function getSingletons(?string $pRequestName, ?string $pLanguage): ?array
+    public static function getSingletons(?string $pRequestName): ?array
     {
         // check
         if (!isset($pRequestName)) return null;
 
         // request
         $request = cockpit('singletons')->getData($pRequestName, [
-            'lang' => $pLanguage
+            'lang' => self::getCurrentLanguage()
         ]);
 
         // return if exist
@@ -30,17 +39,16 @@ class Requests
     /**
      * Get collections
      * @param string|null $pRequestName
-     * @param string|null $pLanguage
      * @return array|null
      */
-    public static function getCollections(?string $pRequestName, ?string $pLanguage): ?array
+    public static function getCollection(?string $pRequestName): ?array
     {
         // check
         if (!isset($pRequestName)) return null;
 
         // request
         $request = cockpit('collections')->find($pRequestName, [
-            'lang' => $pLanguage
+            'lang' => self::getCurrentLanguage()
         ]);
 
         // return if exist
