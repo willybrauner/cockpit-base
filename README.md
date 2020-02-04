@@ -1,10 +1,10 @@
 # Cockpit base
 
-# About
+## About
 
 [Cockpit CMS](https://getcockpit.com/) base project.  
 
-# Installation
+## Installation
 
 Clone repos:
 ````shell script
@@ -21,7 +21,10 @@ Start install script:
 $ ./install.sh
 ```
 
-# Credit 
+## Credits
 
 © Willy Brauner
 
+## Licence
+
+MIT
